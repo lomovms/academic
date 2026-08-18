@@ -1,0 +1,16 @@
+:root {
+  --font-family: "Akrobat", sans-serif;
+  --color-cream: #f3e8d5;
+  --color-brown: #60464a;
+  --color-text: #906254;
+  --color-teal: #007281;
+  --color-teal-light: #008799;
+  --color-sand: #e9d9c0;
+  --color-sand-light: #eee1ca;
+  --color-white: #fff;
+  --section-gap: 120px;
+  --radius: 20px;
+  --grid-columns: 8;
+  --grid-margin: 40px;
+  --grid-gap: 24px;
+}
