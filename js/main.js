@@ -2,17 +2,39 @@ document.addEventListener("DOMContentLoaded", () => {
   Fancybox.bind("[data-fancybox]", {});
 
   new Swiper(".features", {
-    slidesPerView: 1.25,
+    slidesPerView: "auto",
     spaceBetween: 16,
     navigation: { prevEl: "[data-features-prev]", nextEl: "[data-features-next]" },
-    breakpoints: { 768: { slidesPerView: 3 }, 992: { slidesPerView: 4 } },
+    breakpoints: { 768: { slidesPerView: 3, spaceBetween: 24 }, 992: { slidesPerView: 4 } },
   });
 
-  new Swiper(".construction__slider", {
-    slidesPerView: 2.05,
-    spaceBetween: 12,
+  const constructionSliderElement = document.querySelector(".construction__slider");
+  const constructionIntroColumn = document.querySelector(".construction__intro-column");
+  const constructionWrapper = constructionSliderElement.querySelector(".swiper-wrapper");
+  const constructionIntroAnchor = document.createComment("construction intro");
+  const constructionMedia = window.matchMedia("(max-width: 767px)");
+  constructionIntroColumn.before(constructionIntroAnchor);
+
+  const syncConstructionIntro = () => {
+    if (constructionMedia.matches) {
+      constructionIntroColumn.classList.add("construction__slide", "swiper-slide");
+      constructionWrapper.append(constructionIntroColumn);
+      return;
+    }
+    constructionIntroColumn.classList.remove("construction__slide", "swiper-slide");
+    constructionIntroAnchor.after(constructionIntroColumn);
+  };
+
+  syncConstructionIntro();
+  const constructionSwiper = new Swiper(constructionSliderElement, {
+    slidesPerView: "auto",
+    spaceBetween: 16,
     navigation: { prevEl: "[data-construction-prev]", nextEl: "[data-construction-next]" },
     breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 16 }, 992: { slidesPerView: 3 } },
+  });
+  constructionMedia.addEventListener("change", () => {
+    syncConstructionIntro();
+    constructionSwiper.update();
   });
 
   const floors = document.querySelectorAll(".apartments__floor");

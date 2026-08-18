@@ -12,13 +12,39 @@
 .footer__logo {
   width: 390px;
   max-width: 100%;
-  margin-bottom: 54px;
+  margin-bottom: 8px;
+}
+.footer__subtitle {
+  display: block;
+  width: 127px;
+  height: 16px;
+  margin-bottom: 30px;
 }
 .footer__caption {
-  color: rgb(144 98 84 / .6);
+  color: #60464a;
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: inline-block;
+  opacity: 0.5;
 }
 .footer__address, .footer__developer {
   font-size: 16px;
+  font-weight: 700;
+  color: #60464a;
+}
+.footer__developer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.footer__developer-link {
+  display: inline-flex;
+  align-items: center;
+}
+.footer__developer-logo {
+  display: block;
+  width: 118px;
+  height: 19px;
 }
 .footer__nav {
   display: flex;
@@ -36,6 +62,9 @@
   font-size: 22px;
   font-weight: 900;
   line-height: 1;
+}
+.footer__contact-link br {
+  display: none;
 }
 .footer__contact-link:hover {
   color: var(--color-teal-light);
@@ -55,6 +84,12 @@
   color: var(--color-cream);
   font-style: normal;
   font-weight: 900;
+  transition: background-color .2s ease;
+}
+.footer__social-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
 }
 .footer__social-link:hover {
   background: var(--color-teal-light);
@@ -73,6 +108,49 @@
   }
   .footer__logo {
     width: 100%;
+  }
+  .footer__row {
+    display: flex;
+    flex-direction: column;
+    --bs-gutter-x: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .footer__main, .footer__contacts {
+    display: contents;
+  }
+  .footer__logo {
+    order: 1;
+  }
+  .footer__subtitle {
+    order: 2;
+  }
+  .footer__contact-link:nth-of-type(1) {
+    order: 3;
+  }
+  .footer__contact-link:nth-of-type(2) {
+    order: 4;
+  }
+  .footer__social {
+    order: 5;
+  }
+  .footer__contacts .footer__caption {
+    order: 6;
+  }
+  .footer__contacts .footer__address {
+    order: 7;
+  }
+  .footer__main .footer__caption {
+    order: 8;
+  }
+  .footer__main .footer__address {
+    order: 9;
+  }
+  .footer__nav {
+    order: 10;
+  }
+  .footer__developer {
+    order: 11;
   }
   .footer__contacts {
     margin-top: 55px;

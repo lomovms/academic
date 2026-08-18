@@ -1,6 +1,7 @@
 .header {
   height: 48px;
-  border-bottom: 1px solid rgb(96 70 74 / .14);
+  border-bottom: 1px solid rgb(203, 191, 182);
+  background: var(--color-sand);
 }
 .header__inner {
   display: flex;
@@ -16,15 +17,15 @@
   display: flex;
   height: 100%;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   color: var(--color-text);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
   text-transform: uppercase;
 }
 .header__apartments, .menu-button {
-  padding-left: 24px;
-  border-left: 1px solid rgb(96 70 74 / .25);
+  padding-left: 19px;
+  border-left: 1px solid #cbbfb6;
 }
 .header__phone, .header__apartments {
   display: inline-flex;
@@ -46,11 +47,12 @@
   align-items: center;
   gap: 8px;
   border: 0;
-  border-left: 1px solid rgb(96 70 74 / .25);
+  border-left: 1px solid #cbbfb6;
   background: transparent;
   color: var(--color-text);
   text-transform: uppercase;
   transition: color .2s ease;
+  padding-right: 0;
 }
 .menu-button__icon {
   width: 15px;
@@ -95,11 +97,12 @@
   text-transform: uppercase;
 }
 .sticky-offer__caption {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
+  color: #906254;
 }
 .sticky-offer__value {
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1;
 }
 .sticky-offer__value--count {
@@ -117,7 +120,7 @@
     display: none;
   }
   .header__actions {
-    gap: 0;
+    gap: 18px;
   }
   .sticky-offer {
     bottom: 4px;
@@ -126,9 +129,10 @@
     grid-template-columns: 1fr 160px;
     grid-template-rows: 34px 1fr;
     gap: 0 12px;
-    padding: 0 10px 10px 12px;
-    border: 1px solid var(--color-brown);
-    border-left: 4px solid var(--color-brown);
+    padding: 0;
+    box-shadow: 0 4px 4px 0 rgba(38, 32, 34, 0.24);
+    background: #eee1ca;
+    border-left: none;
   }
   .sticky-offer__item:first-child {
     grid-column: 1 / -1;
@@ -137,7 +141,10 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    border-bottom: 1px solid rgb(96 70 74 / .2);
+    border-bottom: 1px solid #cbbfb6;
+    height: 35px;
+    background: #e9d9c0;
+    width: 100%;
   }
   .sticky-offer__item--availability {
     display: flex;
@@ -150,10 +157,10 @@
     display: none;
   }
   .sticky-offer__caption {
-    font-size: 12px;
+    font-size: 16px;
   }
   .sticky-offer__value {
-    font-size: 15px;
+    font-size: 16px;
   }
   .sticky-offer__value--count {
     margin-top: 3px;
@@ -162,7 +169,7 @@
   .sticky-offer__button {
     grid-column: 2;
     grid-row: 2;
-    width: 100%;
+    width: calc(100% - 15px);
     height: 36px;
     min-height: 36px;
     align-self: center;

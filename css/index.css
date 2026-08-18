@@ -70,6 +70,7 @@
   min-height: 102px;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 36px;
 }
 .apartments__title {
   margin-bottom: 16px;
@@ -105,7 +106,7 @@
   background: transparent;
   color: transparent;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
@@ -119,7 +120,7 @@
 }
 .apartments__panel {
   position: absolute;
-  top: 187px;
+  top: 136px;
   right: 40px;
   width: 282px;
   padding: 24px 16px 20px;
@@ -131,6 +132,7 @@
   font-size: 22px;
   font-weight: 900;
   text-transform: uppercase;
+  margin-bottom: 24px;
 }
 .apartments__type {
   display: block;
@@ -138,12 +140,35 @@
   border-bottom: 1px solid rgb(96 70 74 / .2);
   font-size: 16px;
 }
+@media (min-width: 768px) {
+  .apartments__type + .apartments__type {
+    padding-top: 16px;
+  }
+  .apartments__type:nth-of-type(3) {
+    padding-bottom: 24px;
+  }
+}
 .apartments__type-heading, .apartments__availability {
   display: flex;
   justify-content: space-between;
 }
+.apartments__type-heading {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 800;
+}
+.apartments__type-price {
+  text-transform: none;
+
+}
 .apartments__availability {
-  margin-top: 4px;
+  justify-content: flex-start;
+  gap: 3px;
+   font-size: 14px;
+  font-weight: 700;
+}
+.apartments__availability {
+  /* margin-top: 4px; */
 }
 .apartments__type:hover {
   color: var(--color-teal);
@@ -245,7 +270,36 @@
   color: var(--color-cream);
 }
 .parking__text {
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+.parking__text--list-title {
+  margin-bottom: 10px;
+}
+.parking__list {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 40px;
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+.parking__list-item {
+  position: relative;
+  padding-left: 14px;
+}
+.parking__list-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateY(-50%);
 }
 .parking__separator {
   width: 100%;
@@ -288,7 +342,8 @@
   color: var(--color-cream);
 }
 .construction__text {
-  font-size: 18px;
+  font-size: 20px;
+  text-wrap: pretty;
 }
 .construction__link {
   margin-top: auto;
@@ -342,13 +397,13 @@
   padding: 36px 40px;
 }
 .contacts__text {
-  font-size: 18px;
+  font-size: 20px;
 }
 .contacts__fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin: 28px 0 18px;
+  margin: 36px 0 24px;
 }
 .contacts__input {
   min-height: 48px;
@@ -439,6 +494,9 @@
   }
 }
 @media (max-width: 767px) {
+  .construction__head {
+    margin-bottom: 24px;
+  }
   .entrances__grid {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
@@ -467,7 +525,16 @@
   }
   .apartments__head {
     display: block;
-    padding-bottom: 25px;
+    padding-bottom: 0;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .apartments__subtitle {
+    margin-bottom: 24px;
+  }
+  .apartments__head .tabs {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .apartments__visual {
     width: 100vw;
@@ -606,32 +673,59 @@
     margin-left: calc(50% - 50vw);
     border-radius: 0;
   }
+  .location__tabs {
+    width: 100%;
+  }
   .location__map {
     height: 280px;
   }
   .location__marker {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     justify-content: center;
     padding: 0;
-    border-radius: 16px;
+    border-radius: 8px;
+  }
+  .location__marker:nth-child(1) {
+    top: 19.5%;
+    left: calc(50% + 77px);
+  }
+  .location__marker:nth-child(2) {
+    top: 33.8%;
+    left: calc(50% - 80px);
+  }
+  .location__marker:nth-child(3) {
+    top: 66.3%;
+    left: max(24px, calc(50% - 164px));
+  }
+  .location__marker:nth-child(4) {
+    top: 81.6%;
+    left: calc(50% + 77px);
   }
   .location__marker-text {
     display: none;
   }
   .location__marker:hover, .location__marker:focus-visible, .location__marker.is-active {
-    width: min(310px, calc(100vw - 52px));
-    height: 72px;
+    width: fit-content;
+    max-width: calc(100vw - 32px);
+    height: auto;
     justify-content: flex-start;
-    gap: 12px;
-    padding: 0 18px;
-    border-radius: 18px;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    transform: translate(-16px, -50%);
+  }
+  .location__marker:nth-child(1):hover, .location__marker:nth-child(1):focus-visible, .location__marker:nth-child(1).is-active,
+  .location__marker:nth-child(4):hover, .location__marker:nth-child(4):focus-visible, .location__marker:nth-child(4).is-active {
+    transform: translate(calc(-100% + 16px), -50%);
   }
   .location__marker:hover .location__marker-text, .location__marker:focus-visible .location__marker-text, .location__marker.is-active .location__marker-text {
     display: block;
-    font-size: 23px;
+    font-size: 16px;
   }
   .location__marker-icon {
+    width: 20px;
+    height: 20px;
     transform: none;
   }
   .parking__row {
@@ -641,7 +735,14 @@
     height: 350px;
   }
   .construction__intro {
-    min-height: 300px;
+    height: 367px;
+    min-height: 367px;
+  }
+  .construction__image {
+    height: 367px;
+  }
+  .construction__slide {
+    width: 220px;
   }
   .contacts__form, .contacts__portrait {
     width: 100%;
