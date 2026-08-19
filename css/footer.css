@@ -12,13 +12,14 @@
 .footer__logo {
   width: 390px;
   max-width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 66px;
 }
 .footer__subtitle {
   display: block;
   width: 127px;
   height: 16px;
   margin-bottom: 30px;
+  display: none;
 }
 .footer__caption {
   color: #60464a;
