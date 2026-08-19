@@ -268,7 +268,6 @@
   background: var(--color-cream);
   box-shadow: 0 8px 4px rgb(24 17 18 / .24);
   color: var(--color-text);
-  cursor: pointer;
   transform: translate(-50%, -50%);
   transition: .25s;
 }
