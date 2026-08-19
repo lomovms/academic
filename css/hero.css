@@ -30,6 +30,7 @@
   width: 127px;
   height: 16px;
   margin-top: 8px;
+  display: none;
 }
 .hero__eyebrow {
   position: absolute;
@@ -195,10 +196,11 @@
     transform: none;
   }
   .hero__subtitle {
+    display: block;
     grid-column: 1 / -1;
     grid-row: 1;
     align-self: start;
-    margin-top: 80px;
+    margin-top: 82px;
   }
   .hero__copy {
     position: relative;

@@ -5,21 +5,26 @@
 }
 .home__background {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: min(1200px, calc(100% - var(--grid-margin) - var(--grid-margin)));
   overflow: hidden;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 .home__background::before, .home__background::after {
   content: "";
   position: absolute;
   top: 0;
-  width: 43%;
-  height: 1120px;
-  background: url("../assets/images/svg/home-building-outline.svg") center top / contain no-repeat;
+  width: 47%;
+  height: 642px;
+  background: url("../assets/images/svg/home-building-outline.svg") center bottom / contain no-repeat;
   opacity: .12;
 }
 .home__background::before {
   left: -17%;
+  top: 19%;
 }
 .home__background::after {
   right: -17%;
@@ -232,6 +237,9 @@
   }
 }
 @media (max-width: 767px) {
+  .home__background {
+    display: none;
+  }
   .home__text:last-child {
     margin-bottom: 0;
   }

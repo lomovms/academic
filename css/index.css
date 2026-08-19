@@ -83,6 +83,12 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
 }
+@media (min-width: 768px) {
+  .container.apartments__visual {
+    width: min(1280px, 100vw);
+    max-width: 1280px;
+  }
+}
 .apartments__image {
   width: 100%;
   height: 100%;
@@ -99,7 +105,7 @@
   top: var(--floor-top);
   left: 0;
   width: 100%;
-  height: 5.8%;
+  height: 44px;
   padding: 0;
   border: 2px solid transparent;
   border-radius: 10px;
@@ -111,6 +117,48 @@
   text-align: center;
   text-transform: uppercase;
   transition: border-color .35s ease, background-color .35s ease, color .35s ease;
+}
+.apartments__floor[data-floor="14"] {
+  top: 39px;
+}
+.apartments__floor[data-floor="13"] {
+  top: 83px;
+}
+.apartments__floor[data-floor="12"] {
+  top: 127px;
+}
+.apartments__floor[data-floor="11"] {
+  top: 171px;
+}
+.apartments__floor[data-floor="10"] {
+  top: 215px;
+}
+.apartments__floor[data-floor="9"] {
+  top: 259px;
+}
+.apartments__floor[data-floor="8"] {
+  top: 303px;
+}
+.apartments__floor[data-floor="7"] {
+  top: 347px;
+}
+.apartments__floor[data-floor="6"] {
+  top: 391px;
+}
+.apartments__floor[data-floor="5"] {
+  top: 435px;
+}
+.apartments__floor[data-floor="4"] {
+  top: 479px;
+}
+.apartments__floor[data-floor="3"] {
+  top: 523px;
+}
+.apartments__floor[data-floor="2"] {
+  top: 567px;
+}
+.apartments__floor[data-floor="1"] {
+  top: 611px;
 }
 .apartments__floor:hover, .apartments__floor:focus-visible, .apartments__floor.is-active {
   border-color: var(--color-teal);
@@ -604,8 +652,8 @@
     z-index: 2;
     left: 10px;
     display: grid;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     place-items: center;
     border: 0;
     border-radius: 50%;
@@ -615,8 +663,8 @@
     transition: top .45s cubic-bezier(.22, .61, .36, 1), background-color .25s ease, transform .25s ease;
   }
   .apartments__mobile-arrow-icon {
-    width: 11px;
-    height: 7px;
+    width: 7px;
+    height: 11px;
     transition: transform .3s ease;
   }
   .apartments__mobile-arrow:first-child .apartments__mobile-arrow-icon {
@@ -629,7 +677,7 @@
     top: calc(var(--mobile-floor-top, 43%) - 44px);
   }
   .apartments__mobile-arrow:last-child {
-    top: calc(var(--mobile-floor-top, 43%) + 44px);
+    top: calc(var(--mobile-floor-top, 43%) + 42px);
   }
   .apartments__mobile-selection {
     position: absolute;
@@ -638,7 +686,7 @@
     right: 10px;
     left: 10px;
     display: grid;
-    height: 36px;
+    height: 30px;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     border: 2px solid var(--color-teal);
@@ -653,14 +701,11 @@
   }
   .apartments__mobile-selection span,
   .apartments__mobile-selection button {
-    padding: 0 12px;
+    padding: 0 20px;
   }
   .apartments__mobile-open {
     height: 100%;
-    border-left: 1px solid rgb(243 232 213 / .45);
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 0;
+    border: 0;
     background: transparent;
     color: inherit;
     font: inherit;
