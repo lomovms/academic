@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slidesPerView: "auto",
     spaceBetween: 16,
     navigation: { prevEl: "[data-construction-prev]", nextEl: "[data-construction-next]" },
-    breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 16 }, 992: { slidesPerView: 3 } },
+    breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 16 }, 992: { slidesPerView: 3, spaceBetween: 24 } },
   });
   constructionMedia.addEventListener("change", () => {
     syncConstructionIntro();
@@ -109,6 +109,44 @@ document.addEventListener("DOMContentLoaded", () => {
       cookieToggle.setAttribute("aria-expanded", isOpen);
     });
     cookieBanner.querySelector(".cookie-banner__accept").addEventListener("click", () => { cookieBanner.hidden = true; });
+  }
+
+  const contactForm = document.querySelector(".contacts__form");
+  if (contactForm) {
+    const fields = [...contactForm.querySelectorAll(".contacts__input")];
+    const consent = contactForm.querySelector(".contacts__consent");
+    const checkbox = consent.querySelector(".contacts__checkbox");
+    const consentError = document.createElement("p");
+    consentError.className = "contacts__consent-error";
+    consentError.textContent = "Необходимо согласие на обработку данных";
+    consent.append(consentError);
+
+    const validateField = (input) => {
+      const isName = input.name === "name";
+      const value = input.value.trim();
+      const valid = isName ? /^[А-Яа-яЁёA-Za-z -]{2,}$/.test(value) : input.value.replace(/\D/g, "").length >= 11;
+      const field = input.parentElement;
+      field.classList.toggle("is-error", !valid);
+      field.querySelector(".contacts__error").textContent = isName ? (value ? "Не подходящее имя" : "Введите имя") : "Введите корректный телефон";
+      input.setAttribute("aria-invalid", String(!valid));
+      return valid;
+    };
+
+    fields.forEach((input) => {
+      const field = document.createElement("div");
+      field.className = "contacts__field";
+      const error = document.createElement("p");
+      error.className = "contacts__error";
+      input.before(field);
+      field.append(input, error);
+      input.addEventListener("input", () => validateField(input));
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+      const valid = fields.every(validateField);
+      consent.classList.toggle("is-error", !checkbox.checked);
+      if (!valid || !checkbox.checked) event.preventDefault();
+    });
   }
 
   const showcase = document.querySelector(".home-showcase");

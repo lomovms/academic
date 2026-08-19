@@ -463,12 +463,37 @@
   background: #f3e8d5;
   color: var(--color-brown);
 }
-.contacts__consent {
+.contacts__field {
   position: relative;
+  min-width: 0;
+}
+.contacts__field .contacts__input {
+  width: 100%;
+}
+.contacts__error, .contacts__consent-error {
+  display: none;
+  margin: 8px 0 0;
+  color: #c51e3a;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+.contacts__field.is-error .contacts__input {
+  border: 2px solid #c51e3a;
+}
+.contacts__field.is-error .contacts__error, .contacts__consent.is-error .contacts__consent-error {
+  display: block;
+}
+.contacts__consent {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 0;
+  margin: 0;
+}
+.contacts__consent-error {
+  flex-basis: 100%;
 }
 .contacts__checkbox {
   position: absolute;
@@ -515,6 +540,7 @@
 .contacts__button {
   width: 450px;
   max-width: 100%;
+  margin-top: 16px;
 }
 .contacts__portrait {
   position: relative;
