@@ -1,43 +1,107 @@
 document.addEventListener("DOMContentLoaded", () => {
   Fancybox.bind("[data-fancybox]", {});
 
-  new Swiper(".features", {
-    slidesPerView: "auto",
-    spaceBetween: 16,
-    navigation: { prevEl: "[data-features-prev]", nextEl: "[data-features-next]" },
-    breakpoints: { 768: { slidesPerView: 3, spaceBetween: 24 }, 992: { slidesPerView: 4 } },
-  });
+  const menuButton = document.querySelector(".menu-button");
+  const footerContacts = document.querySelector(".footer__contacts");
+  if (menuButton && footerContacts) {
+    const siteMenu = document.createElement("div");
+    siteMenu.className = "site-menu";
+    siteMenu.id = "site-menu";
+    siteMenu.hidden = true;
+    siteMenu.innerHTML = `<div class="site-menu__visual" aria-hidden="true"><div class="site-menu__drawing"></div><img class="site-menu__building" src="assets/images/hero-building.png" alt=""></div><div class="site-menu__panel" role="dialog" aria-modal="true" aria-label="Меню сайта"><nav class="site-menu__nav"><a class="site-menu__link" href="index.html#top">Главная</a><a class="site-menu__link" href="apartments.html">Квартиры в продаже</a><a class="site-menu__link" href="index.html#parking">Парковка</a><a class="site-menu__link" href="index.html#storage">Кладовки</a><a class="site-menu__link" href="index.html#about">О застройщике</a><a class="site-menu__link" href="index.html#mortgage">Ипотека</a><a class="site-menu__link" href="index.html#gallery">Галерея</a><a class="site-menu__link" href="index.html#construction">Ход строительства</a><a class="site-menu__link" href="index.html#contacts">Контакты</a></nav></div>`;
+    const menuPanel = siteMenu.querySelector(".site-menu__panel");
+    const menuContacts = footerContacts.cloneNode(true);
+    menuContacts.className = "site-menu__contacts";
+    menuContacts.querySelector(".footer__developer")?.remove();
+    menuPanel.append(menuContacts);
+    document.body.append(siteMenu);
+
+    const menuLinks = [...siteMenu.querySelectorAll(".site-menu__link")];
+    const setActiveMenuLink = () => {
+      const page = location.pathname.split("/").pop() || "index.html";
+      const activeHref = page === "apartments.html" || page === "apartment.html" ? "apartments.html" : `index.html${location.hash || "#top"}`;
+      menuLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === activeHref;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+    };
+    const closeMenu = (returnFocus = false) => {
+      siteMenu.hidden = true;
+      menuButton.classList.remove("is-open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Открыть меню");
+      document.body.classList.remove("menu-open");
+      if (returnFocus) menuButton.focus();
+    };
+    menuButton.setAttribute("aria-controls", "site-menu");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.addEventListener("click", () => {
+      if (!siteMenu.hidden) {
+        closeMenu();
+        return;
+      }
+      setActiveMenuLink();
+      siteMenu.hidden = false;
+      menuButton.classList.add("is-open");
+      menuButton.setAttribute("aria-expanded", "true");
+      menuButton.setAttribute("aria-label", "Закрыть меню");
+      document.body.classList.add("menu-open");
+      (siteMenu.querySelector(".is-active") || menuLinks[0]).focus();
+    });
+    siteMenu.addEventListener("click", (event) => {
+      if (event.target === siteMenu) closeMenu(true);
+    });
+    menuLinks.forEach((link) => link.addEventListener("click", () => closeMenu()));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !siteMenu.hidden) closeMenu(true);
+    });
+  }
+
+  const featuresElement = document.querySelector(".features");
+  if (featuresElement) {
+    new Swiper(featuresElement, {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+      navigation: { prevEl: "[data-features-prev]", nextEl: "[data-features-next]" },
+      breakpoints: { 768: { slidesPerView: 3, spaceBetween: 24 }, 992: { slidesPerView: 4 } },
+    });
+  }
 
   const constructionSliderElement = document.querySelector(".construction__slider");
-  const constructionIntroColumn = document.querySelector(".construction__intro-column");
-  const constructionWrapper = constructionSliderElement.querySelector(".swiper-wrapper");
-  const constructionIntroAnchor = document.createComment("construction intro");
-  const constructionMedia = window.matchMedia("(max-width: 767px)");
-  constructionIntroColumn.before(constructionIntroAnchor);
+  if (constructionSliderElement) {
+    const constructionIntroColumn = document.querySelector(".construction__intro-column");
+    const constructionWrapper = constructionSliderElement.querySelector(".swiper-wrapper");
+    const constructionIntroAnchor = document.createComment("construction intro");
+    const constructionMedia = window.matchMedia("(max-width: 767px)");
+    constructionIntroColumn.before(constructionIntroAnchor);
 
-  const syncConstructionIntro = () => {
-    if (constructionMedia.matches) {
-      constructionIntroColumn.classList.add("construction__slide", "swiper-slide");
-      constructionWrapper.append(constructionIntroColumn);
-      return;
-    }
-    constructionIntroColumn.classList.remove("construction__slide", "swiper-slide");
-    constructionIntroAnchor.after(constructionIntroColumn);
-  };
+    const syncConstructionIntro = () => {
+      if (constructionMedia.matches) {
+        constructionIntroColumn.classList.add("construction__slide", "swiper-slide");
+        constructionWrapper.append(constructionIntroColumn);
+        return;
+      }
+      constructionIntroColumn.classList.remove("construction__slide", "swiper-slide");
+      constructionIntroAnchor.after(constructionIntroColumn);
+    };
 
-  syncConstructionIntro();
-  const constructionSwiper = new Swiper(constructionSliderElement, {
-    slidesPerView: "auto",
-    spaceBetween: 16,
-    navigation: { prevEl: "[data-construction-prev]", nextEl: "[data-construction-next]" },
-    breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 16 }, 992: { slidesPerView: 3, spaceBetween: 24 } },
-  });
-  constructionMedia.addEventListener("change", () => {
     syncConstructionIntro();
-    constructionSwiper.update();
-  });
+    const constructionSwiper = new Swiper(constructionSliderElement, {
+      slidesPerView: "auto",
+      spaceBetween: 16,
+      navigation: { prevEl: "[data-construction-prev]", nextEl: "[data-construction-next]" },
+      breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 16 }, 992: { slidesPerView: 3, spaceBetween: 24 } },
+    });
+    constructionMedia.addEventListener("change", () => {
+      syncConstructionIntro();
+      constructionSwiper.update();
+    });
+  }
 
   const floorsContainer = document.querySelector(".apartments__floors");
+  if (floorsContainer) {
   const createFloor = (floor) => {
     const button = document.createElement("button");
     button.className = "apartments__floor";
@@ -93,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeApartmentPanel();
   });
+  }
 
   const markers = document.querySelectorAll(".location__marker");
   markers.forEach((marker) => marker.addEventListener("click", () => {
