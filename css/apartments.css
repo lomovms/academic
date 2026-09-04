@@ -367,7 +367,7 @@
 }
 .apartment-card__more {
   display: grid;
-  width: 32x;
+  width: 32px;
   height: 24px;
   flex: 0 0 auto;
   place-items: center;
@@ -385,7 +385,7 @@
   border-top: 1px solid #cbbfb6;
   color: #906254;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 700;
 }
 .selection-empty {
   grid-column: 1 / -1;
@@ -748,9 +748,11 @@
   font-weight: 800;
 }
 .floor-tip__button {
-  display: block;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   margin-top: 16px;
-  text-align: center;
 }
 .floor-tip:not(.is-available) .floor-tip__button {
   display: none;
@@ -786,8 +788,15 @@
 }
 .detail-visual--plan .plan-placeholder {
   width: 260px;
-  height: 360px;
+  height: 446px;
   font-size: 16px;
+}
+.detail-visual__compass {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 48px;
+  height: 48px;
 }
 .floor-plan__header {
   display: flex;
@@ -825,14 +834,15 @@
 }
 .floor-plan__select summary::after {
   width: 9px;
-  height: 9px;
-  border-top: 2px solid #906254;
-  border-left: 2px solid #906254;
+  height: 6px;
+  background: #906254;
   content: "";
-  transform: rotate(45deg);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg width='9' height='6' viewBox='0 0 9 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.24261 1.8856L0.942807 5.18547L0 4.24267L4.24261 0L8.48527 4.24267L7.54247 5.18547L4.24261 1.8856Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg width='9' height='6' viewBox='0 0 9 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.24261 1.8856L0.942807 5.18547L0 4.24267L4.24261 0L8.48527 4.24267L7.54247 5.18547L4.24261 1.8856Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform: rotate(180deg);
 }
 .floor-plan__select[open] summary::after {
-  transform: rotate(-135deg);
+  transform: none;
 }
 .floor-plan__options {
   position: absolute;
@@ -1067,6 +1077,12 @@
   .plan-placeholder {
     width: 100px;
     height: 140px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .detail-visual--plan .plan-placeholder {
+    width: 175px;
+    height: 309px;
   }
   .scheme-layout,
   .detail-top {
