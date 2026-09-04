@@ -79,12 +79,15 @@
         </div>
         <section class="selection-view" data-selection-panel="list">
           <section class="selection-toolbar" aria-label="Фильтры квартир">
-            <label class="filter"
-              ><span class="filter__label">Дом</span
-              ><select class="filter__control" data-filter="building">
-                <option value="all">№ 3</option>
-              </select></label
-            >
+            <div class="filter">
+              <span class="filter__label">Дом</span>
+              <details class="filter-select" data-building-select>
+                <summary data-building-value>№ 3</summary>
+                <div class="filter-select__options">
+                  <button class="is-active" type="button" data-building-option="3">№ 3</button>
+                </div>
+              </details>
+            </div>
             <div class="filter">
               <span class="filter__label">Количество комнат</span>
               <div class="filter__rooms">
@@ -330,12 +333,15 @@
               </article>
             </div>
             <aside class="scheme-filter">
-              <label class="filter"
-                ><span class="filter__label">Дом</span
-                ><select class="filter__control">
-                  <option>№ 3</option>
-                </select></label
-              >
+              <div class="filter">
+                <span class="filter__label">Дом</span>
+                <details class="filter-select" data-building-select>
+                  <summary data-building-value>№ 3</summary>
+                  <div class="filter-select__options">
+                    <button class="is-active" type="button" data-building-option="3">№ 3</button>
+                  </div>
+                </details>
+              </div>
               <div class="filter">
                 <span class="filter__label">Количество комнат</span>
                 <div class="filter__rooms">

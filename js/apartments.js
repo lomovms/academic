@@ -500,6 +500,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }),
   );
 
+  document.querySelectorAll("[data-building-select]").forEach((select) =>
+    select.addEventListener("click", (event) => {
+      const option = event.target.closest("[data-building-option]");
+      if (!option) return;
+      select.querySelector("[data-building-value]").textContent =
+        option.textContent;
+      select
+        .querySelectorAll("[data-building-option]")
+        .forEach((item) => item.classList.toggle("is-active", item === option));
+      select.open = false;
+    }),
+  );
+
   const dialog = document.querySelector("[data-reservation-dialog]");
   document
     .querySelectorAll("[data-reserve]")
