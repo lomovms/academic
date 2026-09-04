@@ -1,7 +1,7 @@
 .home {
   position: relative;
   padding-bottom: 0;
-      margin-top: 60px;
+  margin-top: 60px;
 }
 .home__background {
   position: absolute;
@@ -13,14 +13,16 @@
   pointer-events: none;
   transform: translateX(-50%);
 }
-.home__background::before, .home__background::after {
+.home__background::before,
+.home__background::after {
   content: "";
   position: absolute;
   top: 0;
   width: 47%;
   height: 642px;
-  background: url("../assets/images/svg/home-building-outline.svg") center bottom / contain no-repeat;
-  opacity: .12;
+  background: url("../assets/images/svg/home-building-outline.svg") center
+    bottom / contain no-repeat;
+  opacity: 0.12;
 }
 .home__background::before {
   left: -17%;
@@ -67,7 +69,8 @@
   left: 50%;
   width: calc(100% - 124px);
   aspect-ratio: 466 / 1015;
-  background: url("../assets/images/svg/bg-house.svg") center bottom / 100% 100% no-repeat;
+  background: url("../assets/images/svg/bg-house.svg") center bottom / 100% 100%
+    no-repeat;
   transform: translateX(-50%);
 }
 .home__main-picture {
@@ -139,10 +142,13 @@
 }
 @media (min-width: 768px) {
   .home-showcase__card {
-    transition: transform 1.25s cubic-bezier(.22, .61, .36, 1);
+    transition: transform 1.25s cubic-bezier(0.22, 0.61, 0.36, 1);
   }
   .home-showcase__card--right {
-    transition: transform 1.25s cubic-bezier(.22, .61, .36, 1), left 1.8s cubic-bezier(.22, .61, .36, 1) 1.25s, width 1.8s cubic-bezier(.22, .61, .36, 1) 1.25s;
+    transition:
+      transform 1.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+      left 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) 1.25s,
+      width 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) 1.25s;
   }
   .home-showcase__card--right .home-showcase__image {
     position: absolute;
@@ -226,7 +232,8 @@
   .home__intro {
     grid-template-columns: 220px 1fr;
   }
-  .home__intro > :first-child, .home__main-image {
+  .home__intro > :first-child,
+  .home__main-image {
     grid-column: auto;
   }
   .home__description {

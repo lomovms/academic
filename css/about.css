@@ -1,0 +1,184 @@
+.about-page {
+  padding-top: 16px;
+}
+.about-hero {
+  margin-top: 0;
+}
+.about-page .breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #906254;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.about-page .breadcrumbs span::before {
+  content: "—";
+  margin-right: 8px;
+}
+.about-hero__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.about-hero h1,
+.about-hero h2,
+.about-principles h2,
+.about-project h2,
+.about-history__title {
+  margin: 0;
+  color: var(--color-brown);
+  font-weight: 900;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.about-hero h1 {
+  font-size: clamp(40px, 5vw, 72px);
+}
+.about-hero h2 {
+  font-size: clamp(27px, 3vw, 42px);
+}
+.about-hero p,
+.about-principles p,
+.about-project p {
+  margin: 14px 0 0;
+  color: #906254;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.12;
+}
+.about-hero__image {
+  display: block;
+  width: 100%;
+  margin-top: 38px;
+  border-radius: 8px;
+}
+.about-principles {
+  padding-top: 72px;
+}
+.about-principles__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.about-principles__card {
+  display: grid;
+  gap: 22px;
+}
+.about-principles__card > div {
+  max-width: 435px;
+}
+.about-principles__card h2 {
+  font-size: clamp(25px, 2.7vw, 38px);
+}
+.about-principles__card img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+.about-principles__card--development img {
+  width: 100%;
+  justify-self: center;
+}
+.about-project {
+  padding-top: 72px;
+}
+.about-project__head {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.about-project h2 {
+  font-size: clamp(38px, 5vw, 68px);
+}
+.about-project__image {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+.about-history {
+  padding: 72px 0 110px;
+}
+.about-history__title {
+  margin-bottom: 22px;
+  font-size: clamp(27px, 3vw, 42px);
+}
+.about-history__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 24px;
+}
+.history-card {
+  position: relative;
+  min-width: 0;
+}
+.history-card img {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+}
+.history-card b {
+  position: absolute;
+  right: 0;
+  bottom: 44px;
+  color: var(--color-cream);
+  font-size: clamp(36px, 4.8vw, 122px);
+  font-weight: 900;
+  line-height: 1;
+}
+.history-card h3 {
+  margin: 10px 0 3px;
+  color: var(--color-brown);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.history-card p {
+  margin: 0;
+  color: #906254;
+  font-size: 13px;
+  font-weight: 800;
+}
+@media (max-width: 767px) {
+  .about-hero__head,
+  .about-principles__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-hero__head {
+    gap: 20px;
+  }
+  .about-hero__image {
+    margin-top: 24px;
+  }
+  .about-principles {
+    padding-top: 42px;
+  }
+  .about-principles__card--development img {
+    width: 100%;
+  }
+  .about-project,
+  .about-history {
+    padding-top: 48px;
+  }
+  .about-history {
+    padding-bottom: 64px;
+  }
+  .about-history__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 12px;
+  }
+  .history-card h3 {
+    font-size: 12px;
+  }
+  .history-card p {
+    font-size: 11px;
+  }
+  .history-card b {
+    bottom: 36px;
+    font-size: 40px;
+  }
+}

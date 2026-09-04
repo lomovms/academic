@@ -4,21 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
     [1, ["29,8", "31,2", "34,6", "38,1"], 7100000],
     [2, ["52,4", "56,8", "61,1", "64,7"], 8500000],
     [3, ["65,0", "66,2", "67,0", "69,4"], 10391350],
-  ].flatMap(([rooms, areas, basePrice]) => Array.from({ length: 12 }, (_, index) => {
-    const priceValue = basePrice + index * 350000;
-    const area = areas[index % areas.length];
-    return {
-      rooms,
-      area,
-      areaValue: Number(area.replace(",", ".")),
-      price: new Intl.NumberFormat("ru-RU").format(priceValue),
-      priceValue,
-      floor: floors[index],
-      number: 140 + (rooms - 1) * 12 + index,
-    };
-  }));
+  ].flatMap(([rooms, areas, basePrice]) =>
+    Array.from({ length: 12 }, (_, index) => {
+      const priceValue = basePrice + index * 350000;
+      const area = areas[index % areas.length];
+      return {
+        rooms,
+        area,
+        areaValue: Number(area.replace(",", ".")),
+        price: new Intl.NumberFormat("ru-RU").format(priceValue),
+        priceValue,
+        floor: floors[index],
+        number: 140 + (rooms - 1) * 12 + index,
+      };
+    }),
+  );
 
-  const card = (apartment, index) => `<a class="apartment-card" href="apartment.html" data-card-index="${index}" data-room-card="${apartment.rooms}" data-area-card="${apartment.areaValue}" data-floor-card="${apartment.floor}" data-price-card="${apartment.priceValue}"><h3 class="apartment-card__title">${apartment.rooms}-комнатная, ${apartment.area} м²</h3><p class="apartment-card__price">${apartment.price} ₽<small>260 000 ₽ за м²</small></p><div class="plan-placeholder" role="img" aria-label="Планировка квартиры №${apartment.number}"></div><div class="apartment-card__meta"><span class="apartment-card__finish">⚑ Предчистовая отделка</span><br>Дом №3 · Этаж ${apartment.floor} / 15 · Кв. №${apartment.number}</div></a>`;
+  const card = (apartment, index) =>
+    `<a class="apartment-card" href="apartment.html" data-card-index="${index}" data-room-card="${apartment.rooms}" data-area-card="${apartment.areaValue}" data-floor-card="${apartment.floor}" data-price-card="${apartment.priceValue}"><h3 class="apartment-card__title">${apartment.rooms}-комнатная, ${apartment.area} м²</h3><p class="apartment-card__price">${apartment.price} ₽<small>260 000 ₽ за м²</small></p><div class="plan-placeholder" role="img" aria-label="Планировка квартиры №${apartment.number}"></div><div class="apartment-card__footer"><div class="apartment-card__tags"><span class="apartment-card__finish">Предчистовая отделка</span><span class="apartment-card__more" aria-label="Дополнительные характеристики">•••</span></div><p class="apartment-card__meta">Дом №3 · Этаж ${apartment.floor} / 15 · Кв. №${apartment.number}</p></div></a>`;
 
   const grid = document.querySelector("[data-apartment-grid]");
   const similar = document.querySelector("[data-similar-grid]");
@@ -27,37 +30,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const viewButtons = document.querySelectorAll("[data-selection-view]");
   const panels = document.querySelectorAll("[data-selection-panel]");
-  viewButtons.forEach((button) => button.addEventListener("click", () => {
-    viewButtons.forEach((item) => item.classList.toggle("tabs__button--active", item === button));
-    panels.forEach((panel) => { panel.hidden = panel.dataset.selectionPanel !== button.dataset.selectionView; });
-  }));
+  viewButtons.forEach((button) =>
+    button.addEventListener("click", () => {
+      viewButtons.forEach((item) =>
+        item.classList.toggle("tabs__button--active", item === button),
+      );
+      panels.forEach((panel) => {
+        panel.hidden =
+          panel.dataset.selectionPanel !== button.dataset.selectionView;
+      });
+    }),
+  );
 
   let room = 1;
   let sortMode = "default";
-  const rangeValues = { area: [28, 70], floor: [1, 15], price: [7100000, 14241350] };
+  const rangeValues = {
+    area: [28, 70],
+    floor: [1, 15],
+    price: [7100000, 14241350],
+  };
   const updateFilter = () => {
     if (!grid) return;
     const cards = [...grid.querySelectorAll("[data-room-card]")];
-    const visible = cards.filter((item) => Number(item.dataset.roomCard) === room
-      && Number(item.dataset.areaCard) >= rangeValues.area[0] && Number(item.dataset.areaCard) <= rangeValues.area[1]
-      && Number(item.dataset.floorCard) >= rangeValues.floor[0] && Number(item.dataset.floorCard) <= rangeValues.floor[1]
-      && Number(item.dataset.priceCard) >= rangeValues.price[0] && Number(item.dataset.priceCard) <= rangeValues.price[1]);
+    const visible = cards.filter(
+      (item) =>
+        Number(item.dataset.roomCard) === room &&
+        Number(item.dataset.areaCard) >= rangeValues.area[0] &&
+        Number(item.dataset.areaCard) <= rangeValues.area[1] &&
+        Number(item.dataset.floorCard) >= rangeValues.floor[0] &&
+        Number(item.dataset.floorCard) <= rangeValues.floor[1] &&
+        Number(item.dataset.priceCard) >= rangeValues.price[0] &&
+        Number(item.dataset.priceCard) <= rangeValues.price[1],
+    );
     const [sortKey, direction] = sortMode.split("-");
-    cards.sort((a, b) => sortMode === "default"
-      ? Number(a.dataset.cardIndex) - Number(b.dataset.cardIndex)
-      : (Number(a.dataset[`${sortKey}Card`]) - Number(b.dataset[`${sortKey}Card`])) * (direction === "asc" ? 1 : -1));
+    cards.sort((a, b) =>
+      sortMode === "default"
+        ? Number(a.dataset.cardIndex) - Number(b.dataset.cardIndex)
+        : (Number(a.dataset[`${sortKey}Card`]) -
+            Number(b.dataset[`${sortKey}Card`])) *
+          (direction === "asc" ? 1 : -1),
+    );
     cards.forEach((item) => grid.append(item));
-    cards.forEach((item) => { item.hidden = !visible.includes(item); });
+    cards.forEach((item) => {
+      item.hidden = !visible.includes(item);
+    });
     const empty = document.querySelector("[data-selection-empty]");
     if (empty) empty.hidden = visible.length > 0;
   };
-  document.querySelectorAll("[data-room]").forEach((button) => button.addEventListener("click", () => {
-    room = Number(button.dataset.room);
-    document.querySelectorAll("[data-room]").forEach((item) => item.classList.toggle("is-active", item === button));
-    updateFilter();
-  }));
+  document.querySelectorAll("[data-room]").forEach((button) =>
+    button.addEventListener("click", () => {
+      room = Number(button.dataset.room);
+      document
+        .querySelectorAll("[data-room]")
+        .forEach((item) => item.classList.toggle("is-active", item === button));
+      updateFilter();
+    }),
+  );
 
-  const numberFormat = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 1 });
+  const numberFormat = new Intl.NumberFormat("ru-RU", {
+    maximumFractionDigits: 1,
+  });
   document.querySelectorAll("[data-range]").forEach((range) => {
     const minInput = range.querySelector("[data-range-min]");
     const maxInput = range.querySelector("[data-range-max]");
@@ -74,8 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
       rangeValues[range.dataset.range] = [min, max];
       minOutput.value = numberFormat.format(min);
       maxOutput.value = numberFormat.format(max);
-      range.style.setProperty("--range-start", `${((min - Number(minInput.min)) / total) * 100}%`);
-      range.style.setProperty("--range-end", `${((max - Number(minInput.min)) / total) * 100}%`);
+      range.style.setProperty(
+        "--range-start",
+        `${((min - Number(minInput.min)) / total) * 100}%`,
+      );
+      range.style.setProperty(
+        "--range-end",
+        `${((max - Number(minInput.min)) / total) * 100}%`,
+      );
       updateFilter();
     };
     minInput.addEventListener("input", () => updateRange(minInput));
@@ -87,7 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sort) {
     const toggle = sort.querySelector(".sort__toggle");
     const options = sort.querySelector(".sort__options");
-    const closeSort = () => { options.hidden = true; toggle.setAttribute("aria-expanded", "false"); };
+    const closeSort = () => {
+      options.hidden = true;
+      toggle.setAttribute("aria-expanded", "false");
+    };
     toggle.addEventListener("click", () => {
       options.hidden = !options.hidden;
       toggle.setAttribute("aria-expanded", String(!options.hidden));
@@ -103,51 +144,80 @@ document.addEventListener("DOMContentLoaded", () => {
       closeSort();
       updateFilter();
     });
-    document.addEventListener("click", (event) => { if (!sort.contains(event.target)) closeSort(); });
-    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeSort(); });
+    document.addEventListener("click", (event) => {
+      if (!sort.contains(event.target)) closeSort();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeSort();
+    });
   }
   updateFilter();
 
   const schemeHotspots = document.querySelector("[data-scheme-hotspots]");
   const schemeTip = document.querySelector("[data-scheme-tip]");
   if (schemeHotspots && schemeTip) {
-    const schemeColumns = [[36, 1], [72, 2], [108, 2], [144, 3], [288, 1], [324, 1]];
+    const schemeColumns = [
+      [36, 1],
+      [72, 2],
+      [108, 2],
+      [144, 3],
+      [288, 1],
+      [324, 1],
+    ];
     const schemeFloors = Array.from({ length: 12 }, (_, index) => 13 - index);
-    schemeHotspots.innerHTML = schemeFloors.flatMap((floor) => schemeColumns.map(([x, rooms]) => {
-      const y = floor === 13 ? 0 : 64 + (12 - floor) * 36;
-      const height = floor === 13 ? 56 : 28;
-      const penthouse = floor === 13;
-      const apartment = apartments.filter((item) => item.rooms === rooms)[(13 - floor) % 12];
-      return `<button class="scheme-hotspot" type="button" style="left:${x / 388 * 100}%;top:${y / 452 * 100}%;width:${28 / 388 * 100}%;height:${height / 452 * 100}%" data-scheme-floor="${floor}" data-scheme-rooms="${rooms}" data-scheme-area="${apartment.areaValue}" data-scheme-side="${x < 200 ? "left" : "right"}" aria-label="${penthouse ? "Пентхаус, " : ""}${rooms}-комнатная квартира, ${floor} этаж"></button>`;
-    })).join("");
+    schemeHotspots.innerHTML = schemeFloors
+      .flatMap((floor) =>
+        schemeColumns.map(([x, rooms]) => {
+          const y = floor === 13 ? 0 : 64 + (12 - floor) * 36;
+          const height = floor === 13 ? 56 : 28;
+          const penthouse = floor === 13;
+          const apartment = apartments.filter((item) => item.rooms === rooms)[
+            (13 - floor) % 12
+          ];
+          return `<button class="scheme-hotspot" type="button" style="left:${(x / 388) * 100}%;top:${(y / 452) * 100}%;width:${(28 / 388) * 100}%;height:${(height / 452) * 100}%" data-scheme-floor="${floor}" data-scheme-rooms="${rooms}" data-scheme-area="${apartment.areaValue}" data-scheme-side="${x < 200 ? "left" : "right"}" aria-label="${penthouse ? "Пентхаус, " : ""}${rooms}-комнатная квартира, ${floor} этаж"></button>`;
+        }),
+      )
+      .join("");
 
     const schemeFilter = document.querySelector(".scheme-filter");
     let schemeRoom = 1;
     const schemeRanges = { area: [28, 70], floor: [2, 13] };
     const hideSchemeTip = () => {
       schemeTip.hidden = true;
-      schemeHotspots.querySelectorAll(".is-active").forEach((item) => item.classList.remove("is-active"));
+      schemeHotspots
+        .querySelectorAll(".is-active")
+        .forEach((item) => item.classList.remove("is-active"));
     };
     const updateSchemeFilter = () => {
       schemeHotspots.querySelectorAll(".scheme-hotspot").forEach((hotspot) => {
-        const matches = Number(hotspot.dataset.schemeRooms) === schemeRoom
-          && Number(hotspot.dataset.schemeArea) >= schemeRanges.area[0] && Number(hotspot.dataset.schemeArea) <= schemeRanges.area[1]
-          && Number(hotspot.dataset.schemeFloor) >= schemeRanges.floor[0] && Number(hotspot.dataset.schemeFloor) <= schemeRanges.floor[1];
+        const matches =
+          Number(hotspot.dataset.schemeRooms) === schemeRoom &&
+          Number(hotspot.dataset.schemeArea) >= schemeRanges.area[0] &&
+          Number(hotspot.dataset.schemeArea) <= schemeRanges.area[1] &&
+          Number(hotspot.dataset.schemeFloor) >= schemeRanges.floor[0] &&
+          Number(hotspot.dataset.schemeFloor) <= schemeRanges.floor[1];
         hotspot.classList.toggle("is-filtered", !matches);
         hotspot.tabIndex = matches ? 0 : -1;
         hotspot.setAttribute("aria-hidden", String(!matches));
-        if (!matches && hotspot.classList.contains("is-active")) hideSchemeTip();
+        if (!matches && hotspot.classList.contains("is-active"))
+          hideSchemeTip();
       });
     };
     if (schemeFilter) {
-      schemeFilter.querySelectorAll(".filter__rooms button").forEach((button, index) => {
-        button.dataset.schemeRoom = index + 1;
-        button.addEventListener("click", () => {
-          schemeRoom = Number(button.dataset.schemeRoom);
-          schemeFilter.querySelectorAll("[data-scheme-room]").forEach((item) => item.classList.toggle("is-active", item === button));
-          updateSchemeFilter();
+      schemeFilter
+        .querySelectorAll(".filter__rooms button")
+        .forEach((button, index) => {
+          button.dataset.schemeRoom = index + 1;
+          button.addEventListener("click", () => {
+            schemeRoom = Number(button.dataset.schemeRoom);
+            schemeFilter
+              .querySelectorAll("[data-scheme-room]")
+              .forEach((item) =>
+                item.classList.toggle("is-active", item === button),
+              );
+            updateSchemeFilter();
+          });
         });
-      });
       const initialiseSchemeRange = (range, name, min, max, unit) => {
         range.dataset.schemeRange = name;
         range.innerHTML = `<span>от <output data-scheme-range-min-output>${min}</output></span><span>до <output data-scheme-range-max-output>${max}</output></span><em>${unit}</em><input type="range" min="${min}" max="${max}" value="${min}" step="${name === "area" ? ".1" : "1"}" aria-label="Минимум: ${name}" data-scheme-range-min><input type="range" min="${min}" max="${max}" value="${max}" step="${name === "area" ? ".1" : "1"}" aria-label="Максимум: ${name}" data-scheme-range-max>`;
@@ -165,15 +235,22 @@ document.addEventListener("DOMContentLoaded", () => {
           schemeRanges[name] = [rangeMin, rangeMax];
           minOutput.value = numberFormat.format(rangeMin);
           maxOutput.value = numberFormat.format(rangeMax);
-          range.style.setProperty("--range-start", `${((rangeMin - min) / (max - min)) * 100}%`);
-          range.style.setProperty("--range-end", `${((rangeMax - min) / (max - min)) * 100}%`);
+          range.style.setProperty(
+            "--range-start",
+            `${((rangeMin - min) / (max - min)) * 100}%`,
+          );
+          range.style.setProperty(
+            "--range-end",
+            `${((rangeMax - min) / (max - min)) * 100}%`,
+          );
           updateSchemeFilter();
         };
         minInput.addEventListener("input", () => updateRange(minInput));
         maxInput.addEventListener("input", () => updateRange(maxInput));
         updateRange();
       };
-      const schemeRangeElements = schemeFilter.querySelectorAll(".filter__range");
+      const schemeRangeElements =
+        schemeFilter.querySelectorAll(".filter__range");
       initialiseSchemeRange(schemeRangeElements[0], "area", 28, 70, "м²");
       initialiseSchemeRange(schemeRangeElements[1], "floor", 2, 13, "эт.");
     }
@@ -181,30 +258,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const showSchemeTip = (hotspot) => {
       const floor = Number(hotspot.dataset.schemeFloor);
       const rooms = Number(hotspot.dataset.schemeRooms);
-      const roomApartments = apartments.filter((apartment) => apartment.rooms === rooms);
+      const roomApartments = apartments.filter(
+        (apartment) => apartment.rooms === rooms,
+      );
       const apartment = roomApartments[(13 - floor) % roomApartments.length];
       const tipHeight = floor === 13 ? 198 : 157;
       const building = schemeTip.closest(".scheme-building");
       const buildingRect = building.getBoundingClientRect();
       const hotspotRect = hotspot.getBoundingClientRect();
-      const mapRect = building.querySelector(".scheme-map").getBoundingClientRect();
+      const mapRect = building
+        .querySelector(".scheme-map")
+        .getBoundingClientRect();
       const gap = 8;
       const cardWidth = 315;
       const overflowAllowance = 16;
-      const canOpenLeft = hotspotRect.left - buildingRect.left - gap - cardWidth >= -overflowAllowance;
-      const canOpenRight = buildingRect.right - hotspotRect.right - gap - cardWidth >= -overflowAllowance;
+      const canOpenLeft =
+        hotspotRect.left - buildingRect.left - gap - cardWidth >=
+        -overflowAllowance;
+      const canOpenRight =
+        buildingRect.right - hotspotRect.right - gap - cardWidth >=
+        -overflowAllowance;
       let openLeft = hotspot.dataset.schemeSide === "left";
       if (openLeft && !canOpenLeft) openLeft = false;
       if (!openLeft && !canOpenRight && canOpenLeft) openLeft = true;
-      schemeHotspots.querySelectorAll(".scheme-hotspot").forEach((item) => item.classList.toggle("is-active", item === hotspot));
+      schemeHotspots
+        .querySelectorAll(".scheme-hotspot")
+        .forEach((item) =>
+          item.classList.toggle("is-active", item === hotspot),
+        );
       schemeTip.classList.toggle("is-penthouse", floor === 13);
-      schemeTip.style.setProperty("--scheme-tip-left", `${openLeft ? hotspotRect.left - buildingRect.left - gap - cardWidth : hotspotRect.right - buildingRect.left + gap}px`);
-      schemeTip.style.setProperty("--scheme-tip-top", `${Math.min(hotspotRect.top - buildingRect.top, mapRect.bottom - buildingRect.top - tipHeight)}px`);
+      schemeTip.style.setProperty(
+        "--scheme-tip-left",
+        `${openLeft ? hotspotRect.left - buildingRect.left - gap - cardWidth : hotspotRect.right - buildingRect.left + gap}px`,
+      );
+      schemeTip.style.setProperty(
+        "--scheme-tip-top",
+        `${Math.min(hotspotRect.top - buildingRect.top, mapRect.bottom - buildingRect.top - tipHeight)}px`,
+      );
       schemeTip.querySelector("[data-scheme-penthouse]").hidden = floor !== 13;
-      schemeTip.querySelector("[data-scheme-title]").textContent = `${rooms}-комнатная, ${apartment.area} м²`;
-      schemeTip.querySelector("[data-scheme-price]").textContent = `${apartment.price} ₽`;
-      schemeTip.querySelector("[data-scheme-old-price]").textContent = `${new Intl.NumberFormat("ru-RU").format(apartment.priceValue + 300000)} ₽`;
-      schemeTip.querySelector("[data-scheme-address]").textContent = `Дом №3 · Этаж ${floor} / 15 · Кв. №${apartment.number}`;
+      schemeTip.querySelector("[data-scheme-title]").textContent =
+        `${rooms}-комнатная, ${apartment.area} м²`;
+      schemeTip.querySelector("[data-scheme-price]").textContent =
+        `${apartment.price} ₽`;
+      schemeTip.querySelector("[data-scheme-old-price]").textContent =
+        `${new Intl.NumberFormat("ru-RU").format(apartment.priceValue + 300000)} ₽`;
+      schemeTip.querySelector("[data-scheme-address]").textContent =
+        `Дом №3 · Этаж ${floor} / 15 · Кв. №${apartment.number}`;
       schemeTip.hidden = false;
     };
     schemeHotspots.addEventListener("focusin", (event) => {
@@ -224,40 +323,213 @@ document.addEventListener("DOMContentLoaded", () => {
   const floorPicker = document.querySelector("[data-floor-picker]");
   const floorShape = document.querySelector("[data-floor-shape]");
   const floorLabel = document.querySelector("[data-floor-label]");
+  const floorTip = document.querySelector("[data-floor-tip]");
+  const floorApartments = [
+    {
+      overlay: "Rectangle 550.svg",
+      x: 21,
+      y: 24,
+      width: 215,
+      height: 83,
+      title: "3-комнатная",
+      area: "90,8",
+      price: 12450000,
+      number: 260,
+      status: "sale",
+    },
+    {
+      overlay: "Rectangle 551.svg",
+      x: 240,
+      y: 24,
+      width: 129,
+      height: 130,
+      title: "Студия",
+      area: "36,8",
+      price: 7450000,
+      number: 257,
+      status: "sale",
+    },
+    {
+      overlay: "Rectangle 552.svg",
+      x: 21,
+      y: 234,
+      width: 258,
+      height: 85,
+      title: "4-комнатная",
+      area: "92,8",
+      price: 14100000,
+      number: 259,
+      status: "reserved",
+    },
+    {
+      overlay: "Rectangle 553.svg",
+      x: 424,
+      y: 208,
+      width: 62,
+      height: 112,
+      title: "1-комнатная",
+      area: "29,8",
+      price: 7100000,
+      number: 256,
+      status: "reserved",
+    },
+  ];
+  const showFloorTip = (button) => {
+    const apartment = floorApartments[Number(button.dataset.floorApartment)];
+    const floor = Number(floorLabel.textContent);
+    const layoutRect = button.closest(".floor-layout").getBoundingClientRect();
+    const buttonRect = button.getBoundingClientRect();
+    const cardWidth = apartment.status === "sale" ? 420 : 315;
+    const gap = 8;
+    const openLeft = layoutRect.right - buttonRect.right < cardWidth + gap;
+    floorShape
+      .querySelectorAll(".floor-apartment")
+      .forEach((item) => item.classList.toggle("is-active", item === button));
+    floorTip.classList.toggle("is-reserved", apartment.status === "reserved");
+    floorTip.classList.toggle("is-available", apartment.status === "sale");
+    floorTip.style.setProperty(
+      "--floor-tip-left",
+      `${openLeft ? buttonRect.left - layoutRect.left - cardWidth - gap : buttonRect.right - layoutRect.left + gap}px`,
+    );
+    floorTip.style.setProperty(
+      "--floor-tip-top",
+      `${buttonRect.top - layoutRect.top}px`,
+    );
+    floorTip.querySelector("[data-floor-status]").hidden = false;
+    floorTip.querySelector("[data-floor-status]").textContent =
+      apartment.status === "reserved" ? "Забронирована" : "Доступна";
+    floorTip.querySelector("[data-floor-tip-title]").textContent =
+      `${apartment.title}, ${apartment.area} м²`;
+    floorTip.querySelector("[data-floor-tip-price]").textContent =
+      `${numberFormat.format(apartment.price)} ₽`;
+    floorTip.querySelector("[data-floor-tip-old-price]").textContent =
+      `${numberFormat.format(apartment.price + 300000)} ₽`;
+    floorTip.querySelector("[data-floor-tip-address]").textContent =
+      `Дом №3 · Этаж ${floor} · Кв. №${apartment.number}`;
+    floorTip.hidden = false;
+  };
   const setFloor = (floor) => {
     if (floorLabel) floorLabel.textContent = floor;
-    if (floorPicker) floorPicker.querySelectorAll("button").forEach((button) => button.classList.toggle("is-active", Number(button.textContent) === floor));
-    if (floorShape) floorShape.innerHTML = Array.from({ length: 9 }, (_, index) => `<button type="button" data-open-apartment>${index % 4 === 0 ? "Забронирована" : `${(index % 3) + 1}-комнатная`}</button>`).join("");
+    if (floorPicker)
+      floorPicker
+        .querySelectorAll("button")
+        .forEach((button) =>
+          button.classList.toggle(
+            "is-active",
+            Number(button.textContent) === floor,
+          ),
+        );
+    if (floorShape) {
+      floorShape.innerHTML = `<img class="floor-layout__image" src="assets/images/shema.jpg" alt="План ${floor} этажа">${floorApartments
+        .map(
+          (apartment, index) =>
+            `<button class="floor-apartment floor-apartment--${apartment.status}" type="button" style="--floor-x:${apartment.x}px;--floor-y:${apartment.y}px;--floor-width:${(apartment.width / 1090) * 100}%;--floor-height:${(apartment.height / 369) * 100}%;--floor-overlay:url('../assets/images/floor/${apartment.overlay}')" data-floor-apartment="${index}" aria-label="${apartment.status === "reserved" ? "Забронирована: " : ""}${apartment.title}, ${apartment.area} м²"><img src="assets/images/floor/${apartment.overlay}" alt=""></button>`,
+        )
+        .join("")}`;
+      floorTip.hidden = true;
+    }
   };
   if (floorPicker) {
-    floorPicker.innerHTML = Array.from({ length: 13 }, (_, index) => 13 - index).map((floor) => `<button type="button">${floor}</button>`).join("");
-    floorPicker.addEventListener("click", (event) => { if (event.target.matches("button")) setFloor(Number(event.target.textContent)); });
+    floorPicker.innerHTML = Array.from({ length: 13 }, (_, index) => 13 - index)
+      .map((floor) => `<button type="button">${floor}</button>`)
+      .join("");
+    floorPicker.addEventListener("click", (event) => {
+      if (event.target.matches("button"))
+        setFloor(Number(event.target.textContent));
+    });
+    floorShape.addEventListener("pointerover", (event) => {
+      const apartment = event.target.closest("[data-floor-apartment]");
+      if (apartment) showFloorTip(apartment);
+    });
+    floorShape.addEventListener("focusin", (event) => {
+      const apartment = event.target.closest("[data-floor-apartment]");
+      if (apartment) showFloorTip(apartment);
+    });
     setFloor(10);
   }
 
-  document.addEventListener("click", (event) => {
-    if (event.target.closest("[data-open-apartment]")) window.location.href = "apartment.html";
-  });
-
   const detailTabs = document.querySelectorAll("[data-detail-tab]");
   const detailPanels = document.querySelectorAll("[data-detail-panel]");
-  detailTabs.forEach((button) => button.addEventListener("click", () => {
-    detailTabs.forEach((item) => item.classList.toggle("is-active", item === button));
-    detailPanels.forEach((panel) => { panel.hidden = panel.dataset.detailPanel !== button.dataset.detailTab; });
-  }));
+  const detailMobileTrigger = document.querySelector(
+    "[data-detail-mobile-trigger]",
+  );
+  const detailMobileDialog = document.querySelector(
+    "[data-detail-mobile-dialog]",
+  );
+  const detailMobileValue = document.querySelector("[data-detail-mobile-value]");
+  detailTabs.forEach((button) =>
+    button.addEventListener("click", () => {
+      detailTabs.forEach((item) =>
+        item.classList.toggle(
+          "is-active",
+          item.dataset.detailTab === button.dataset.detailTab,
+        ),
+      );
+      detailPanels.forEach((panel) => {
+        panel.hidden = panel.dataset.detailPanel !== button.dataset.detailTab;
+      });
+      if (detailMobileValue)
+        detailMobileValue.textContent = button.textContent.trim();
+      if (detailMobileDialog?.open) detailMobileDialog.close();
+    }),
+  );
+  detailMobileTrigger?.addEventListener("click", () => {
+    detailMobileDialog?.showModal();
+    detailMobileTrigger.setAttribute("aria-expanded", "true");
+  });
+  detailMobileDialog?.addEventListener("close", () =>
+    detailMobileTrigger?.setAttribute("aria-expanded", "false"),
+  );
+  document
+    .querySelectorAll("[data-detail-mobile-close]")
+    .forEach((button) =>
+      button.addEventListener("click", () => detailMobileDialog?.close()),
+    );
+
+  document.querySelectorAll("[data-floor-plan-select]").forEach((select) =>
+    select.addEventListener("click", (event) => {
+      const option = event.target.closest("[data-floor-plan-option]");
+      if (!option) return;
+      const floor = option.dataset.floorPlanOption;
+      select.querySelector("[data-floor-plan-value]").textContent = `№ ${floor}`;
+      select
+        .querySelectorAll("[data-floor-plan-option]")
+        .forEach((item) => item.classList.toggle("is-active", item === option));
+      document.querySelector(".floor-plan__image").alt = `План ${floor} этажа`;
+      select.open = false;
+    }),
+  );
 
   const dialog = document.querySelector("[data-reservation-dialog]");
-  document.querySelectorAll("[data-reserve]").forEach((button) => button.addEventListener("click", () => dialog?.showModal()));
-  document.querySelectorAll("[data-dialog-close]").forEach((button) => button.addEventListener("click", () => dialog?.close()));
-  document.querySelectorAll("[data-reservation-form]").forEach((form) => form.addEventListener("submit", () => {
-    form.innerHTML = "<p>Заявка принята. Менеджер свяжется с вами в ближайшее время.</p>";
-  }));
+  document
+    .querySelectorAll("[data-reserve]")
+    .forEach((button) =>
+      button.addEventListener("click", () => dialog?.showModal()),
+    );
+  document
+    .querySelectorAll("[data-dialog-close]")
+    .forEach((button) =>
+      button.addEventListener("click", () => dialog?.close()),
+    );
+  document.querySelectorAll("[data-reservation-form]").forEach((form) =>
+    form.addEventListener("submit", () => {
+      form.innerHTML =
+        "<p>Заявка принята. Менеджер свяжется с вами в ближайшее время.</p>";
+    }),
+  );
 
-  document.querySelectorAll("[data-consultation-form]").forEach((form) => form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const message = form.querySelector("[data-form-message]");
-    if (message) message.textContent = "Спасибо! Мы свяжемся с вами в ближайшее время.";
-    form.reset();
-  }));
-  document.querySelectorAll("[data-toast]").forEach((button) => button.addEventListener("click", () => alert(button.dataset.toast)));
+  document.querySelectorAll("[data-consultation-form]").forEach((form) =>
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const message = form.querySelector("[data-form-message]");
+      if (message)
+        message.textContent = "Спасибо! Мы свяжемся с вами в ближайшее время.";
+      form.reset();
+    }),
+  );
+  document
+    .querySelectorAll("[data-toast]")
+    .forEach((button) =>
+      button.addEventListener("click", () => alert(button.dataset.toast)),
+    );
 });

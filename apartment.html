@@ -1,49 +1,611 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>1-комнатная квартира №140 — Академик</title>
-    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"><link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"><link href="assets/vendor/fancybox/fancybox.css" rel="stylesheet">
-    <link href="css/fonts.css" rel="stylesheet"><link href="css/variables.css" rel="stylesheet"><link href="css/global.css" rel="stylesheet"><link href="css/header.css" rel="stylesheet"><link href="css/home-middle.css" rel="stylesheet"><link href="css/index.css" rel="stylesheet"><link href="css/footer.css" rel="stylesheet"><link href="css/apartments.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/vendor/fancybox/fancybox.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/variables.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/home-middle.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <link href="css/apartments.css" rel="stylesheet" />
   </head>
   <body>
-    <header class="header"><div class="container header__inner"><a href="index.html" aria-label="На главную"><img class="header__logo" src="assets/images/svg/logo.svg" alt="Каскад"></a><div class="header__actions"><a class="header__phone" href="tel:+78312884825"><img class="header__icon" src="assets/images/svg/phone.svg" alt=""><span class="header__phone-text">+7 (831) 288-48-25</span></a><a class="header__apartments" href="apartments.html"><img class="header__icon header__icon--apartments" src="assets/images/svg/apartment-choice.svg" alt=""><span>Выбрать квартиру</span></a><button class="menu-button" type="button" aria-label="Открыть меню"><img class="menu-button__icon" src="assets/images/svg/menu.svg" alt=""><b class="menu-button__label">Меню</b></button></div></div></header>
-    <main class="apartments-page" data-apartment-detail><div class="container">
-      <nav class="breadcrumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><a href="apartments.html">Выбор квартиры</a><span>1-комнатная №140</span></nav>
-      <section class="detail-top"><div><div class="detail-visual detail-visual--plan" data-detail-panel="plan"><div class="plan-placeholder" role="img" aria-label="Планировка квартиры"></div></div><div class="detail-visual" data-detail-panel="floor" hidden><div class="asset-placeholder"><span>План этажа<br>изображение будет добавлено</span></div></div><div class="detail-visual" data-detail-panel="map" hidden><div class="asset-placeholder"><span>Расположение на карте<br>изображение будет добавлено</span></div></div><div class="detail-visual" data-detail-panel="master" hidden><div class="asset-placeholder"><span>Генеральный план<br>изображение будет добавлено</span></div></div><div class="detail-visual detail-visual--sun" data-detail-panel="sun" hidden><div class="plan-placeholder" role="img" aria-label="Схема восхода и заката"></div></div><div class="detail-tabs" aria-label="Информация о квартире"><button class="is-active" type="button" data-detail-tab="plan">Планировка</button><button type="button" data-detail-tab="floor">План этажа</button><button type="button" data-detail-tab="map">На карте</button><button type="button" data-detail-tab="master">Ген план</button><button type="button" data-detail-tab="sun">Восход/закат</button></div></div>
-        <aside class="detail-summary"><h1>1-комнатная, №140</h1><p class="detail-summary__price">7 100 000 ₽ <del>7 400 000 ₽</del></p><div class="detail-summary__row"><span>Общая площадь</span><b>29,08 м²</b></div><div class="detail-summary__row"><span>Жилая площадь</span><b>15,45 м²</b></div><p class="detail-summary__address">Дом №3 · Этаж 2 / 15 · Кв. №256</p><button class="button" type="button" data-reserve>Забронировать квартиру</button><button class="button button--outline" type="button" data-toast="Условия покупки пришлём вам после консультации.">Выбрать условия</button></aside></section>
-    </div>
-      <section class="section"><div class="container"><h2>Особенности</h2><div class="features swiper"><div class="swiper-wrapper"><article class="feature swiper-slide"><img class="feature__image" src="assets/images/feature-savings.png" alt=""><h3 class="feature__title">Энергоэффективный дом</h3><p class="feature__text">Современные инженерные системы помогают рационально использовать ресурсы и снижать расходы.</p></article><article class="feature swiper-slide"><img class="feature__image" src="assets/images/feature-playground.png" alt=""><h3 class="feature__title">Приватный двор без машин</h3><p class="feature__text">Закрытая территория с детскими площадками и местами для отдыха.</p></article><article class="feature swiper-slide"><img class="feature__image" src="assets/images/feature-storage.png" alt=""><h3 class="feature__title">Кладовые помещения</h3><p class="feature__text">Индивидуальные кладовые для сезонных вещей, спортивного инвентаря и шин.</p></article><article class="feature swiper-slide"><img class="feature__image" src="assets/images/feature-outlets.png" alt=""><h3 class="feature__title">Варианты отделки</h3><p class="feature__text">Квартиры с черновой, предчистовой или чистовой отделкой.</p></article><article class="feature swiper-slide"><img class="feature__image" src="assets/images/feature-shop.png" alt=""><h3 class="feature__title">Коммерция рядом</h3><p class="feature__text">Повседневные сервисы расположены на первых этажах.</p></article></div><div class="slider-arrows features__arrows"><button class="slider-arrows__button slider-arrows__button--prev" data-features-prev type="button" aria-label="Назад"><img class="slider-arrows__icon" src="assets/images/svg/arrow-right.svg" alt=""></button><button class="slider-arrows__button" data-features-next type="button" aria-label="Вперёд"><img class="slider-arrows__icon" src="assets/images/svg/arrow-right.svg" alt=""></button></div></div></div></section>
-      <section class="container similar-apartments"><h2>Похожие квартиры</h2><div class="apartment-grid" data-similar-grid></div></section>
-      <section class="entrances section"><div class="container"><div class="section-heading section-heading--center"><h2 class="section-heading__title">Современные входные группы</h2><p class="section-heading__text">Просторный дизайнерский холл, колясочная, помещение для велосипедов,<br>зона консьержа и место для ухода за питомцами после прогулки.</p></div><div class="entrances__grid"><a class="entrances__item" data-fancybox="entrances" href="assets/images/lobby-reception.jpg"><img class="entrances__image" src="assets/images/lobby-reception.jpg" alt="Стойка консьержа"></a><a class="entrances__item" data-fancybox="entrances" href="assets/images/lobby-elevators.jpg"><img class="entrances__image" src="assets/images/lobby-elevators.jpg" alt="Лифтовой холл"></a><a class="entrances__item" data-fancybox="entrances" href="assets/images/lobby-hallway.jpg"><img class="entrances__image" src="assets/images/lobby-hallway.jpg" alt="Помещение для ухода за питомцами"></a><a class="entrances__item" data-fancybox="entrances" href="assets/images/lobby-children.jpg"><img class="entrances__image" src="assets/images/lobby-children.jpg" alt="Колясочная"></a><a class="entrances__item" data-fancybox="entrances" href="assets/images/lobby-bikes.jpg"><img class="entrances__image" src="assets/images/lobby-bikes.jpg" alt="Велосипедная"></a><a class="entrances__item entrances__item--more" data-fancybox="entrances" href="assets/images/lobby-lounge.jpg"><img class="entrances__image" src="assets/images/lobby-lounge.jpg" alt="Зона отдыха"><span class="entrances__more-label">Смотреть все <img class="entrances__more-icon" src="assets/images/svg/arrow-right.svg" alt=""></span></a></div></div></section>
-      <section class="parking section"><div class="container"><h2 class="parking__title">Подземный паркинг</h2><div class="parking__row row gx-4"><div class="parking__image-column col-lg-9"><img class="parking__image" src="assets/images/parking.jpg" alt="Подземный паркинг"></div><div class="parking__panel-column col-lg-3"><div class="parking__panel"><p class="parking__text">Паркинг расположен прямо под домом — автомобиль всегда рядом и защищён от непогоды.</p><p class="parking__text parking__text--list-title">Машино-места на выбор:</p><ul class="parking__list"><li class="parking__list-item">Индивидуальное</li><li class="parking__list-item">Семейное (2 автомобиля)</li></ul><hr class="parking__separator"><span class="parking__label">Доступно мест</span><b class="parking__count">70 / 73</b><a class="button parking__button" href="#contacts">Выбрать на схеме</a></div></div></div></div></section>
-      <section class="construction section"><div class="container"><div class="construction__head"><h2 class="construction__title">Динамика<br>строительства</h2><div class="slider-arrows"><button class="slider-arrows__button slider-arrows__button--prev" data-construction-prev type="button" aria-label="Назад"><img class="slider-arrows__icon" src="assets/images/svg/arrow-right.svg" alt=""></button><button class="slider-arrows__button" data-construction-next type="button" aria-label="Вперёд"><img class="slider-arrows__icon" src="assets/images/svg/arrow-right.svg" alt=""></button></div></div><div class="construction__row row gx-4"><div class="construction__intro-column col-lg-3"><div class="construction__intro"><p class="construction__text">Следите за этапами строительства жилого комплекса.</p><p class="construction__text">Фотографии, новости и актуальная информация публикуются регулярно.</p><a class="construction__link" href="#">Смотреть все фото</a></div></div><div class="construction__slider-column col-lg-9"><div class="construction__slider swiper"><div class="swiper-wrapper"><a class="construction__slide swiper-slide" data-fancybox="construction" href="assets/images/construction-june.jpg"><img class="construction__image" src="assets/images/construction-june.jpg" alt="Июль 2026"><b class="construction__date">Июль 2026</b></a><a class="construction__slide swiper-slide" data-fancybox="construction" href="assets/images/construction-july.jpg"><img class="construction__image" src="assets/images/construction-july.jpg" alt="Июнь 2026"><b class="construction__date">Июнь 2026</b></a><a class="construction__slide swiper-slide" data-fancybox="construction" href="assets/images/construction-august.jpg"><img class="construction__image" src="assets/images/construction-august.jpg" alt="Май 2026"><b class="construction__date">Май 2026</b></a></div></div></div></div></div></section>
-      <section class="contacts section" id="contacts"><div class="container contacts__inner"><div class="contacts__row row g-0"><form class="contacts__form col-lg-7"><h2 class="contacts__title">Остались вопросы?</h2><p class="contacts__text">Наши специалисты помогут подобрать оптимальное<br>решение и ответят на все ваши вопросы.</p><div class="contacts__fields"><input class="contacts__input" type="text" name="name" placeholder="Имя"><input class="contacts__input" type="tel" name="phone" placeholder="Телефон"></div><label class="contacts__consent"><input class="contacts__checkbox" type="checkbox"><span class="contacts__checkbox-mark" aria-hidden="true"></span>Я даю согласие на обработку <a class="contacts__policy" href="#">персональных данных</a></label><button class="button contacts__button" type="submit">Получить консультацию</button></form><div class="contacts__portrait col-lg-5"><img class="contacts__portrait-image" src="assets/images/contact-portrait.png" alt="Специалист жилого комплекса"></div></div></div></section>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" aria-label="На главную"
+          ><img
+            class="header__logo"
+            src="assets/images/svg/logo.svg"
+            alt="Каскад"
+        /></a>
+        <div class="header__actions">
+          <a class="header__phone" href="tel:+78312884825"
+            ><img
+              class="header__icon"
+              src="assets/images/svg/phone.svg"
+              alt=""
+            /><span class="header__phone-text">+7 (831) 288-48-25</span></a
+          ><a class="header__apartments" href="apartments.html"
+            ><img
+              class="header__icon header__icon--apartments"
+              src="assets/images/svg/apartment-choice.svg"
+              alt=""
+            /><span>Выбрать квартиру</span></a
+          ><button class="menu-button" type="button" aria-label="Открыть меню">
+            <img
+              class="menu-button__icon"
+              src="assets/images/svg/menu.svg"
+              alt=""
+            /><b class="menu-button__label">Меню</b>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="apartments-page" data-apartment-detail>
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a
+          ><a href="apartments.html">Выбор квартиры</a
+          ><span>1-комнатная №140</span>
+        </nav>
+        <section class="detail-top">
+          <div>
+            <div
+              class="detail-visual detail-visual--plan"
+              data-detail-panel="plan"
+            >
+              <div
+                class="plan-placeholder"
+                role="img"
+                aria-label="Планировка квартиры"
+              ></div>
+            </div>
+            <div class="detail-visual" data-detail-panel="floor" hidden>
+              <div class="floor-plan__header">
+                <h2>Этаж</h2>
+                <details class="floor-plan__select" data-floor-plan-select>
+                  <summary data-floor-plan-value>№ 3</summary>
+                  <div class="floor-plan__options">
+                    <button type="button" data-floor-plan-option="13">№ 13</button>
+                    <button type="button" data-floor-plan-option="12">№ 12</button>
+                    <button type="button" data-floor-plan-option="11">№ 11</button>
+                    <button type="button" data-floor-plan-option="10">№ 10</button>
+                    <button type="button" data-floor-plan-option="9">№ 9</button>
+                    <button type="button" data-floor-plan-option="8">№ 8</button>
+                    <button type="button" data-floor-plan-option="7">№ 7</button>
+                    <button type="button" data-floor-plan-option="6">№ 6</button>
+                    <button type="button" data-floor-plan-option="5">№ 5</button>
+                    <button type="button" data-floor-plan-option="4">№ 4</button>
+                    <button class="is-active" type="button" data-floor-plan-option="3">№ 3</button>
+                    <button type="button" data-floor-plan-option="2">№ 2</button>
+                  </div>
+                </details>
+              </div>
+              <img class="floor-plan__image" src="assets/images/shema.jpg" alt="План 3 этажа" />
+            </div>
+            <div class="detail-visual" data-detail-panel="map" hidden>
+              <div class="asset-placeholder">
+                <span
+                  >Расположение на карте<br />изображение будет добавлено</span
+                >
+              </div>
+            </div>
+            <div class="detail-visual" data-detail-panel="master" hidden>
+              <div class="asset-placeholder">
+                <span>Генеральный план<br />изображение будет добавлено</span>
+              </div>
+            </div>
+            <div class="detail-visual detail-visual--view" data-detail-panel="view" hidden>
+              <img class="detail-visual__image" src="assets/images/wrap visual.jpg" alt="Вид из окна квартиры" />
+              <svg class="detail-visual__view-zone" width="111" height="116" viewBox="0 0 111 116" fill="none" aria-label="Направление вида из окна" role="img" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.49805 33.0591L109.498 1.05908L90.998 113.559L1.49805 33.0591Z" fill="#008799" fill-opacity="0.3" stroke="#008799" stroke-width="1.5" stroke-dasharray="5 5" />
+              </svg>
+            </div>
+            <div
+              class="detail-visual detail-visual--sun"
+              data-detail-panel="sun"
+              hidden
+            >
+              <div
+                class="plan-placeholder"
+                role="img"
+                aria-label="Схема восхода и заката"
+              ></div>
+            </div>
+            <div class="detail-tabs" aria-label="Информация о квартире">
+              <button class="is-active" type="button" data-detail-tab="plan">
+                Планировка</button
+              ><button type="button" data-detail-tab="floor">План этажа</button
+              ><button type="button" data-detail-tab="map">На карте</button
+              ><button type="button" data-detail-tab="master">Ген план</button
+              ><button type="button" data-detail-tab="view">Вид из окна</button
+              ><button type="button" data-detail-tab="sun">Восход/закат</button>
+            </div>
+            <div class="detail-tabs-mobile">
+              <button class="detail-tabs-mobile__trigger" type="button" data-detail-mobile-trigger aria-haspopup="dialog" aria-expanded="false">
+                <span data-detail-mobile-value>Планировка</span>
+              </button>
+              <dialog class="detail-tabs-mobile__dialog" data-detail-mobile-dialog aria-label="Информация о квартире">
+                <button class="detail-tabs-mobile__close" type="button" data-detail-mobile-close aria-label="Закрыть">×</button>
+                <div class="detail-tabs-mobile__options">
+                  <button class="is-active" type="button" data-detail-tab="plan">Планировка</button>
+                  <button type="button" data-detail-tab="floor">План этажа</button>
+                  <button type="button" data-detail-tab="map">На карте</button>
+                  <button type="button" data-detail-tab="master">Ген план</button>
+                  <button type="button" data-detail-tab="view">Вид из окна</button>
+                  <button type="button" data-detail-tab="sun">Восход/закат</button>
+                </div>
+              </dialog>
+            </div>
+          </div>
+          <aside class="detail-summary">
+            <h1>1-комнатная, №140</h1>
+            <p class="detail-summary__price">
+              7 100 000 ₽ <del>7 400 000 ₽</del>
+            </p>
+            <div class="detail-summary__row">
+              <span>Общая площадь</span><b>29,08 м²</b>
+            </div>
+            <div class="detail-summary__row">
+              <span>Жилая площадь</span><b>15,45 м²</b>
+            </div>
+            <p class="detail-summary__address">
+              Дом №3 · Этаж 2 / 15 · Кв. №256
+            </p>
+            <button class="button" type="button" data-reserve>
+              Забронировать квартиру</button
+            ><button
+              class="button button--outline"
+              type="button"
+              data-toast="Условия покупки пришлём вам после консультации."
+            >
+              Выбрать условия
+            </button>
+          </aside>
+        </section>
+      </div>
+      <section class="section">
+        <div class="container">
+          <h2>Особенности</h2>
+          <div class="features swiper">
+            <div class="swiper-wrapper">
+              <article class="feature swiper-slide">
+                <img
+                  class="feature__image"
+                  src="assets/images/feature-savings.png"
+                  alt=""
+                />
+                <h3 class="feature__title">Энергоэффективный дом</h3>
+                <p class="feature__text">
+                  Современные инженерные системы помогают рационально
+                  использовать ресурсы и снижать расходы.
+                </p>
+              </article>
+              <article class="feature swiper-slide">
+                <img
+                  class="feature__image"
+                  src="assets/images/feature-playground.png"
+                  alt=""
+                />
+                <h3 class="feature__title">Приватный двор без машин</h3>
+                <p class="feature__text">
+                  Закрытая территория с детскими площадками и местами для
+                  отдыха.
+                </p>
+              </article>
+              <article class="feature swiper-slide">
+                <img
+                  class="feature__image"
+                  src="assets/images/feature-storage.png"
+                  alt=""
+                />
+                <h3 class="feature__title">Кладовые помещения</h3>
+                <p class="feature__text">
+                  Индивидуальные кладовые для сезонных вещей, спортивного
+                  инвентаря и шин.
+                </p>
+              </article>
+              <article class="feature swiper-slide">
+                <img
+                  class="feature__image"
+                  src="assets/images/feature-outlets.png"
+                  alt=""
+                />
+                <h3 class="feature__title">Варианты отделки</h3>
+                <p class="feature__text">
+                  Квартиры с черновой, предчистовой или чистовой отделкой.
+                </p>
+              </article>
+              <article class="feature swiper-slide">
+                <img
+                  class="feature__image"
+                  src="assets/images/feature-shop.png"
+                  alt=""
+                />
+                <h3 class="feature__title">Коммерция рядом</h3>
+                <p class="feature__text">
+                  Повседневные сервисы расположены на первых этажах.
+                </p>
+              </article>
+            </div>
+            <div class="slider-arrows features__arrows">
+              <button
+                class="slider-arrows__button slider-arrows__button--prev"
+                data-features-prev
+                type="button"
+                aria-label="Назад"
+              >
+                <img
+                  class="slider-arrows__icon"
+                  src="assets/images/svg/arrow-right.svg"
+                  alt=""
+                /></button
+              ><button
+                class="slider-arrows__button"
+                data-features-next
+                type="button"
+                aria-label="Вперёд"
+              >
+                <img
+                  class="slider-arrows__icon"
+                  src="assets/images/svg/arrow-right.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container similar-apartments">
+        <h2>Похожие квартиры</h2>
+        <div class="apartment-grid" data-similar-grid></div>
+      </section>
+      <section class="entrances section">
+        <div class="container">
+          <div class="section-heading section-heading--center">
+            <h2 class="section-heading__title">Современные входные группы</h2>
+            <p class="section-heading__text">
+              Просторный дизайнерский холл, колясочная, помещение для
+              велосипедов,<br />зона консьержа и место для ухода за питомцами
+              после прогулки.
+            </p>
+          </div>
+          <div class="entrances__grid">
+            <a
+              class="entrances__item"
+              data-fancybox="entrances"
+              href="assets/images/lobby-reception.jpg"
+              ><img
+                class="entrances__image"
+                src="assets/images/lobby-reception.jpg"
+                alt="Стойка консьержа" /></a
+            ><a
+              class="entrances__item"
+              data-fancybox="entrances"
+              href="assets/images/lobby-elevators.jpg"
+              ><img
+                class="entrances__image"
+                src="assets/images/lobby-elevators.jpg"
+                alt="Лифтовой холл" /></a
+            ><a
+              class="entrances__item"
+              data-fancybox="entrances"
+              href="assets/images/lobby-hallway.jpg"
+              ><img
+                class="entrances__image"
+                src="assets/images/lobby-hallway.jpg"
+                alt="Помещение для ухода за питомцами" /></a
+            ><a
+              class="entrances__item"
+              data-fancybox="entrances"
+              href="assets/images/lobby-children.jpg"
+              ><img
+                class="entrances__image"
+                src="assets/images/lobby-children.jpg"
+                alt="Колясочная" /></a
+            ><a
+              class="entrances__item"
+              data-fancybox="entrances"
+              href="assets/images/lobby-bikes.jpg"
+              ><img
+                class="entrances__image"
+                src="assets/images/lobby-bikes.jpg"
+                alt="Велосипедная" /></a
+            ><a
+              class="entrances__item entrances__item--more"
+              data-fancybox="entrances"
+              href="assets/images/lobby-lounge.jpg"
+              ><img
+                class="entrances__image"
+                src="assets/images/lobby-lounge.jpg"
+                alt="Зона отдыха" /><span class="entrances__more-label"
+                >Смотреть все
+                <img
+                  class="entrances__more-icon"
+                  src="assets/images/svg/arrow-right.svg"
+                  alt="" /></span
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="parking section">
+        <div class="container">
+          <h2 class="parking__title">Подземный паркинг</h2>
+          <div class="parking__row row gx-4">
+            <div class="parking__image-column col-lg-9">
+              <img
+                class="parking__image"
+                src="assets/images/parking.jpg"
+                alt="Подземный паркинг"
+              />
+            </div>
+            <div class="parking__panel-column col-lg-3">
+              <div class="parking__panel">
+                <p class="parking__text">
+                  Паркинг расположен прямо под домом — автомобиль всегда рядом и
+                  защищён от непогоды.
+                </p>
+                <p class="parking__text parking__text--list-title">
+                  Машино-места на выбор:
+                </p>
+                <ul class="parking__list">
+                  <li class="parking__list-item">Индивидуальное</li>
+                  <li class="parking__list-item">Семейное (2 автомобиля)</li>
+                </ul>
+                <hr class="parking__separator" />
+                <span class="parking__label">Доступно мест</span
+                ><b class="parking__count">70 / 73</b
+                ><a class="button parking__button" href="#contacts"
+                  >Выбрать на схеме</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="construction section">
+        <div class="container">
+          <div class="construction__head">
+            <h2 class="construction__title">Динамика<br />строительства</h2>
+            <div class="slider-arrows">
+              <button
+                class="slider-arrows__button slider-arrows__button--prev"
+                data-construction-prev
+                type="button"
+                aria-label="Назад"
+              >
+                <img
+                  class="slider-arrows__icon"
+                  src="assets/images/svg/arrow-right.svg"
+                  alt=""
+                /></button
+              ><button
+                class="slider-arrows__button"
+                data-construction-next
+                type="button"
+                aria-label="Вперёд"
+              >
+                <img
+                  class="slider-arrows__icon"
+                  src="assets/images/svg/arrow-right.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </div>
+          <div class="construction__row row gx-4">
+            <div class="construction__intro-column col-lg-3">
+              <div class="construction__intro">
+                <p class="construction__text">
+                  Следите за этапами строительства жилого комплекса.
+                </p>
+                <p class="construction__text">
+                  Фотографии, новости и актуальная информация публикуются
+                  регулярно.
+                </p>
+                <a class="construction__link" href="#">Смотреть все фото</a>
+              </div>
+            </div>
+            <div class="construction__slider-column col-lg-9">
+              <div class="construction__slider swiper">
+                <div class="swiper-wrapper">
+                  <a
+                    class="construction__slide swiper-slide"
+                    data-fancybox="construction"
+                    href="assets/images/construction-june.jpg"
+                    ><img
+                      class="construction__image"
+                      src="assets/images/construction-june.jpg"
+                      alt="Июль 2026"
+                    /><b class="construction__date">Июль 2026</b></a
+                  ><a
+                    class="construction__slide swiper-slide"
+                    data-fancybox="construction"
+                    href="assets/images/construction-july.jpg"
+                    ><img
+                      class="construction__image"
+                      src="assets/images/construction-july.jpg"
+                      alt="Июнь 2026"
+                    /><b class="construction__date">Июнь 2026</b></a
+                  ><a
+                    class="construction__slide swiper-slide"
+                    data-fancybox="construction"
+                    href="assets/images/construction-august.jpg"
+                    ><img
+                      class="construction__image"
+                      src="assets/images/construction-august.jpg"
+                      alt="Май 2026"
+                    /><b class="construction__date">Май 2026</b></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contacts section" id="contacts">
+        <div class="container contacts__inner">
+          <div class="contacts__row row g-0">
+            <form class="contacts__form col-lg-7">
+              <h2 class="contacts__title">Остались вопросы?</h2>
+              <p class="contacts__text">
+                Наши специалисты помогут подобрать оптимальное<br />решение и
+                ответят на все ваши вопросы.
+              </p>
+              <div class="contacts__fields">
+                <input
+                  class="contacts__input"
+                  type="text"
+                  name="name"
+                  placeholder="Имя"
+                /><input
+                  class="contacts__input"
+                  type="tel"
+                  name="phone"
+                  placeholder="Телефон"
+                />
+              </div>
+              <label class="contacts__consent"
+                ><input class="contacts__checkbox" type="checkbox" /><span
+                  class="contacts__checkbox-mark"
+                  aria-hidden="true"
+                ></span
+                >Я даю согласие на обработку
+                <a class="contacts__policy" href="#"
+                  >персональных данных</a
+                ></label
+              ><button class="button contacts__button" type="submit">
+                Получить консультацию
+              </button>
+            </form>
+            <div class="contacts__portrait col-lg-5">
+              <img
+                class="contacts__portrait-image"
+                src="assets/images/contact-portrait.png"
+                alt="Специалист жилого комплекса"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <div class="container footer__top">
         <div class="footer__row row">
           <div class="footer__main col-lg-9">
-            <img class="footer__logo" src="assets/images/svg/title.svg" alt="Академик">
-            <img class="footer__subtitle" src="assets/images/svg/hero-subtitle.svg" alt="Жилой комплекс">
+            <img
+              class="footer__logo"
+              src="assets/images/svg/title.svg"
+              alt="Академик"
+            />
+            <img
+              class="footer__subtitle"
+              src="assets/images/svg/hero-subtitle.svg"
+              alt="Жилой комплекс"
+            />
             <small class="footer__caption">Адрес дома</small>
-            <p class="footer__address">Нижегородская область, г. Саров, ул.<br>Пионерская</p>
-            <nav class="footer__nav"><a class="footer__nav-link" href="#">Политика конфиденциальности</a><a class="footer__nav-link" href="#">Согласие на обработку персональных данных</a><a class="footer__nav-link" href="#">Пользовательское соглашение</a></nav>
+            <p class="footer__address">
+              Нижегородская область, г. Саров, ул.<br />Пионерская
+            </p>
+            <nav class="footer__nav">
+              <a class="footer__nav-link" href="#"
+                >Политика конфиденциальности</a
+              ><a class="footer__nav-link" href="#"
+                >Согласие на обработку персональных данных</a
+              ><a class="footer__nav-link" href="#"
+                >Пользовательское соглашение</a
+              >
+            </nav>
           </div>
           <div class="footer__contacts col-lg-3">
-            <a class="footer__contact-link" href="tel:+78312884825">+7 (831) 288-48-25</a>
-            <a class="footer__contact-link" href="mailto:kaskadnn@list.ru">KASKADNN@LIST.RU</a>
-            <div class="footer__social"><a class="footer__social-link" href="https://vk.com" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте"><img class="footer__social-icon" src="assets/images/svg/social-vk.svg" alt=""></a><a class="footer__social-link" href="https://max.ru" target="_blank" rel="noopener noreferrer" aria-label="MAX"><img class="footer__social-icon" src="assets/images/svg/social-max.svg" alt=""></a></div>
+            <a class="footer__contact-link" href="tel:+78312884825"
+              >+7 (831) 288-48-25</a
+            >
+            <a class="footer__contact-link" href="mailto:kaskadnn@list.ru"
+              >KASKADNN@LIST.RU</a
+            >
+            <div class="footer__social">
+              <a
+                class="footer__social-link"
+                href="https://vk.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="ВКонтакте"
+                ><img
+                  class="footer__social-icon"
+                  src="assets/images/svg/social-vk.svg"
+                  alt="" /></a
+              ><a
+                class="footer__social-link"
+                href="https://max.ru"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MAX"
+                ><img
+                  class="footer__social-icon"
+                  src="assets/images/svg/social-max.svg"
+                  alt=""
+              /></a>
+            </div>
             <small class="footer__caption">Офис продаж</small>
-            <p class="footer__address">г. Нижний Новгород, ул. Ковалихинская, 8 Б<br>(ориентир Центр Международной торговли)</p>
-            <p class="footer__developer">Разработано в <a class="footer__developer-link" href="https://melissa.team" target="_blank" rel="noopener noreferrer" aria-label="melissa.team"><img class="footer__developer-logo" src="assets/images/svg/melissa-team.svg" alt="melissa.team"></a></p>
+            <p class="footer__address">
+              г. Нижний Новгород, ул. Ковалихинская, 8 Б<br />(ориентир Центр
+              Международной торговли)
+            </p>
+            <p class="footer__developer">
+              Разработано в
+              <a
+                class="footer__developer-link"
+                href="https://melissa.team"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="melissa.team"
+                ><img
+                  class="footer__developer-logo"
+                  src="assets/images/svg/melissa-team.svg"
+                  alt="melissa.team"
+              /></a>
+            </p>
           </div>
         </div>
       </div>
-      <div class="container footer__bottom">© 2026. Застройщик: ООО «Каскад специализированный застройщик», проектная декларация и иная<br>документация, предусмотренная законодательством РФ, размещена на сайте ЕИСЖС: наш.дом.рф.<br>Информация, представленная на сайте, носит информационный характер и не является публичной офертой.</div>
+      <div class="container footer__bottom">
+        © 2026. Застройщик: ООО «Каскад специализированный застройщик»,
+        проектная декларация и иная<br />документация, предусмотренная
+        законодательством РФ, размещена на сайте ЕИСЖС: наш.дом.рф.<br />Информация,
+        представленная на сайте, носит информационный характер и не является
+        публичной офертой.
+      </div>
     </footer>
-    <dialog class="reservation-dialog" data-reservation-dialog><button class="reservation-dialog__close" type="button" data-dialog-close aria-label="Закрыть">×</button><h2>Забронировать квартиру</h2><p>Оставьте контакты — менеджер подтвердит наличие и свяжется с вами.</p><form method="dialog" data-reservation-form><input name="name" placeholder="Имя" required><input name="phone" placeholder="Телефон" required><button class="button" value="submit">Отправить заявку</button></form></dialog>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script><script src="assets/vendor/fancybox/fancybox.umd.js"></script><script src="js/main.js"></script><script src="js/apartments.js"></script>
+    <dialog class="reservation-dialog" data-reservation-dialog>
+      <button
+        class="reservation-dialog__close"
+        type="button"
+        data-dialog-close
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+      <h2>Забронировать квартиру</h2>
+      <p>Оставьте контакты — менеджер подтвердит наличие и свяжется с вами.</p>
+      <form method="dialog" data-reservation-form>
+        <input name="name" placeholder="Имя" required /><input
+          name="phone"
+          placeholder="Телефон"
+          required
+        /><button class="button" value="submit">Отправить заявку</button>
+      </form>
+    </dialog>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/fancybox/fancybox.umd.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/apartments.js"></script>
   </body>
 </html>

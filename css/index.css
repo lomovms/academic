@@ -37,7 +37,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
 .entrances__item:hover .entrances__image {
   transform: scale(1.025);
@@ -46,7 +46,7 @@
   content: "";
   position: absolute;
   inset: 55% 0 0;
-  background: linear-gradient(transparent, rgb(37 33 34 / .78));
+  background: linear-gradient(transparent, rgb(37 33 34 / 0.78));
 }
 .entrances__more-label {
   position: absolute;
@@ -116,7 +116,10 @@
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
-  transition: border-color .35s ease, background-color .35s ease, color .35s ease;
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    color 0.35s ease;
 }
 .apartments__floor[data-floor="14"] {
   top: 39px;
@@ -160,9 +163,11 @@
 .apartments__floor[data-floor="1"] {
   top: 611px;
 }
-.apartments__floor:hover, .apartments__floor:focus-visible, .apartments__floor.is-active {
+.apartments__floor:hover,
+.apartments__floor:focus-visible,
+.apartments__floor.is-active {
   border-color: var(--color-teal);
-  background: rgb(0 114 129 / .62);
+  background: rgb(0 114 129 / 0.62);
   color: var(--color-cream);
   outline: 0;
 }
@@ -185,7 +190,7 @@
 .apartments__type {
   display: block;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(96 70 74 / .2);
+  border-bottom: 1px solid rgb(96 70 74 / 0.2);
   font-size: 16px;
 }
 @media (min-width: 768px) {
@@ -196,7 +201,8 @@
     padding-bottom: 24px;
   }
 }
-.apartments__type-heading, .apartments__availability {
+.apartments__type-heading,
+.apartments__availability {
   display: flex;
   justify-content: space-between;
 }
@@ -207,12 +213,11 @@
 }
 .apartments__type-price {
   text-transform: none;
-
 }
 .apartments__availability {
   justify-content: flex-start;
   gap: 3px;
-   font-size: 14px;
+  font-size: 14px;
   font-weight: 700;
 }
 .apartments__availability {
@@ -266,12 +271,14 @@
   border: 0;
   border-radius: 8px;
   background: var(--color-cream);
-  box-shadow: 0 8px 4px rgb(24 17 18 / .24);
+  box-shadow: 0 8px 4px rgb(24 17 18 / 0.24);
   color: var(--color-text);
   transform: translate(-50%, -50%);
-  transition: .25s;
+  transition: 0.25s;
 }
-.location__marker:hover, .location__marker:focus-visible, .location__marker.is-active {
+.location__marker:hover,
+.location__marker:focus-visible,
+.location__marker.is-active {
   outline: 0;
 }
 .location__marker-icon {
@@ -279,7 +286,8 @@
   width: 15px;
   height: 19px;
   flex: 0 0 auto;
-  background: url("../assets/images/svg/location-marker.svg") center / contain no-repeat;
+  background: url("../assets/images/svg/location-marker.svg") center / contain
+    no-repeat;
   font-size: 0;
 }
 .location__marker-text {
@@ -294,11 +302,13 @@
   margin-bottom: 30px;
   text-align: center;
 }
-.parking__row, .construction__row {
+.parking__row,
+.construction__row {
   --bs-gutter-x: 24px;
   height: 450px;
 }
-.parking__image-column, .parking__panel-column {
+.parking__image-column,
+.parking__panel-column {
   height: 100%;
 }
 .parking__image {
@@ -351,7 +361,7 @@
 .parking__separator {
   width: 100%;
   margin-top: auto;
-  opacity: .35;
+  opacity: 0.35;
 }
 .parking__label {
   font-weight: 800;
@@ -376,7 +386,8 @@
 .construction__row {
   height: auto;
 }
-.construction__intro-column, .construction__slider-column {
+.construction__intro-column,
+.construction__slider-column {
   min-width: 0;
 }
 .construction__intro {
@@ -400,9 +411,13 @@
   font-weight: 800;
   text-align: center;
   text-transform: uppercase;
-  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
-.construction__link:hover, .construction__link:focus-visible {
+.construction__link:hover,
+.construction__link:focus-visible {
   border-color: var(--color-teal);
   background: var(--color-teal);
   color: var(--color-cream);
@@ -455,8 +470,8 @@
 .contacts__input {
   min-height: 48px;
   padding: 12px 16px;
-   font-size: 16px;
-   font-weight: 700;
+  font-size: 16px;
+  font-weight: 700;
   border: 1px solid var(--color-text);
   border-radius: 4px;
   background: #f3e8d5;
@@ -469,7 +484,8 @@
 .contacts__field .contacts__input {
   width: 100%;
 }
-.contacts__error, .contacts__consent-error {
+.contacts__error,
+.contacts__consent-error {
   display: none;
   margin: 8px 0 0;
   color: #c51e3a;
@@ -480,7 +496,8 @@
 .contacts__field.is-error .contacts__input {
   border: 2px solid #c51e3a;
 }
-.contacts__field.is-error .contacts__error, .contacts__consent.is-error .contacts__consent-error {
+.contacts__field.is-error .contacts__error,
+.contacts__consent.is-error .contacts__consent-error {
   display: block;
 }
 .contacts__consent {
@@ -510,16 +527,21 @@
   border: 1px solid var(--color-text);
   border-radius: 2px;
   background: var(--color-cream);
-  transition: border-color .2s ease, background-color .2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 .contacts__checkbox-mark::after {
   content: "";
   width: 12px;
   height: 9px;
-  background: url("../assets/images/svg/checkbox-check.svg") center / contain no-repeat;
+  background: url("../assets/images/svg/checkbox-check.svg") center / contain
+    no-repeat;
   opacity: 0;
-  transform: scale(.7);
-  transition: opacity .2s ease, transform .2s ease;
+  transform: scale(0.7);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 .contacts__checkbox:checked + .contacts__checkbox-mark {
   border-color: var(--color-teal);
@@ -543,7 +565,8 @@
 }
 .contacts__portrait {
   position: relative;
-  background: url("../assets/images/svg/041-Vector-2152-1488.svg") calc(100% + 65px) bottom / 548px auto no-repeat;
+  background: url("../assets/images/svg/041-Vector-2152-1488.svg")
+    calc(100% + 65px) bottom / 548px auto no-repeat;
 }
 .contacts__portrait-image {
   position: absolute;
@@ -559,7 +582,8 @@
     height: auto;
     row-gap: 24px;
   }
-  .parking__image-column, .parking__panel-column {
+  .parking__image-column,
+  .parking__panel-column {
     height: auto;
   }
   .construction__row {
@@ -634,7 +658,7 @@
     width: auto;
     padding: 26px 18px 20px;
     border-radius: 14px;
-    box-shadow: 0 8px 20px rgb(24 17 18 / .24);
+    box-shadow: 0 8px 20px rgb(24 17 18 / 0.24);
   }
   .apartments__panel-close {
     position: absolute;
@@ -685,12 +709,15 @@
     background: var(--color-teal);
     color: var(--color-cream);
     pointer-events: auto;
-    transition: top .45s cubic-bezier(.22, .61, .36, 1), background-color .25s ease, transform .25s ease;
+    transition:
+      top 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      background-color 0.25s ease,
+      transform 0.25s ease;
   }
   .apartments__mobile-arrow-icon {
     width: 7px;
     height: 11px;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
   .apartments__mobile-arrow:first-child .apartments__mobile-arrow-icon {
     transform: rotate(-90deg);
@@ -716,13 +743,15 @@
     align-items: center;
     border: 2px solid var(--color-teal);
     border-radius: 8px;
-    background: rgb(0 114 129 / .72);
+    background: rgb(0 114 129 / 0.72);
     color: var(--color-cream);
     font-size: 18px;
     font-weight: 900;
     text-transform: uppercase;
     pointer-events: auto;
-    transition: top .45s cubic-bezier(.22, .61, .36, 1), background-color .3s ease;
+    transition:
+      top 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+      background-color 0.3s ease;
   }
   .apartments__mobile-selection span,
   .apartments__mobile-selection button {
@@ -736,7 +765,7 @@
     font: inherit;
     text-align: right;
     text-transform: inherit;
-    transition: color .25s ease;
+    transition: color 0.25s ease;
   }
   .location__map-wrap {
     width: 100vw;
@@ -775,7 +804,9 @@
   .location__marker-text {
     display: none;
   }
-  .location__marker:hover, .location__marker:focus-visible, .location__marker.is-active {
+  .location__marker:hover,
+  .location__marker:focus-visible,
+  .location__marker.is-active {
     width: fit-content;
     max-width: calc(100vw - 32px);
     height: auto;
@@ -785,11 +816,17 @@
     border-radius: 8px;
     transform: translate(-16px, -50%);
   }
-  .location__marker:nth-child(1):hover, .location__marker:nth-child(1):focus-visible, .location__marker:nth-child(1).is-active,
-  .location__marker:nth-child(4):hover, .location__marker:nth-child(4):focus-visible, .location__marker:nth-child(4).is-active {
+  .location__marker:nth-child(1):hover,
+  .location__marker:nth-child(1):focus-visible,
+  .location__marker:nth-child(1).is-active,
+  .location__marker:nth-child(4):hover,
+  .location__marker:nth-child(4):focus-visible,
+  .location__marker:nth-child(4).is-active {
     transform: translate(calc(-100% + 16px), -50%);
   }
-  .location__marker:hover .location__marker-text, .location__marker:focus-visible .location__marker-text, .location__marker.is-active .location__marker-text {
+  .location__marker:hover .location__marker-text,
+  .location__marker:focus-visible .location__marker-text,
+  .location__marker.is-active .location__marker-text {
     display: block;
     font-size: 16px;
   }
@@ -814,7 +851,8 @@
   .construction__slide {
     width: 220px;
   }
-  .contacts__form, .contacts__portrait {
+  .contacts__form,
+  .contacts__portrait {
     width: 100%;
     min-width: 0;
   }

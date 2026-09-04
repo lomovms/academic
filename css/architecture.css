@@ -7,7 +7,11 @@
   gap: 30px;
   padding: 60px 40px 0;
   border-radius: var(--radius);
-  background: linear-gradient(to bottom, var(--color-teal) 0 62%, var(--color-brown) 62%);
+  background: linear-gradient(
+    to bottom,
+    var(--color-teal) 0 62%,
+    var(--color-brown) 62%
+  );
   color: var(--color-cream);
 }
 .architecture__inner::before {
@@ -15,7 +19,8 @@
   position: absolute;
   z-index: 0;
   inset: 0;
-  background: url("../assets/images/svg/architecture-pattern.svg") center top / 100% auto no-repeat;
+  background: url("../assets/images/svg/architecture-pattern.svg") center top /
+    100% auto no-repeat;
   pointer-events: none;
 }
 .architecture__title {
@@ -31,8 +36,9 @@
   width: 546px;
   height: 645px;
   transform: translateX(-50%);
-  background: url("../assets/images/svg/house.svg") center bottom / contain no-repeat;
-  opacity: .95;
+  background: url("../assets/images/svg/house.svg") center bottom / contain
+    no-repeat;
+  opacity: 0.95;
 }
 .architecture__portrait {
   position: relative;
@@ -70,7 +76,11 @@
     display: block;
     height: 826px;
     padding: 35px 24px 0;
-    background: linear-gradient(to bottom, var(--color-teal) 0 76%, var(--color-brown) 76%);
+    background: linear-gradient(
+      to bottom,
+      var(--color-teal) 0 76%,
+      var(--color-brown) 76%
+    );
     border-radius: 12px;
   }
   .architecture__copy {
