@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     siteMenu.className = "site-menu";
     siteMenu.id = "site-menu";
     siteMenu.hidden = true;
-    siteMenu.innerHTML = `<div class="site-menu__visual" aria-hidden="true"><div class="site-menu__drawing"></div><img class="site-menu__building" src="assets/images/hero-building.png" alt=""></div><div class="site-menu__panel" role="dialog" aria-modal="true" aria-label="Меню сайта"><nav class="site-menu__nav"><a class="site-menu__link" href="index.html#top">Главная</a><a class="site-menu__link" href="apartments.html">Квартиры в продаже</a><a class="site-menu__link" href="index.html#parking">Парковка</a><a class="site-menu__link" href="index.html#storage">Кладовки</a><a class="site-menu__link" href="about.html">О застройщике</a><a class="site-menu__link" href="index.html#mortgage">Ипотека</a><a class="site-menu__link" href="index.html#gallery">Галерея</a><a class="site-menu__link" href="index.html#construction">Ход строительства</a><a class="site-menu__link" href="index.html#contacts">Контакты</a></nav></div>`;
+    siteMenu.innerHTML = `<div class="site-menu__visual" aria-hidden="true"><div class="site-menu__drawing"></div><img class="site-menu__building" src="assets/images/hero-building.png" alt=""></div><div class="site-menu__panel" role="dialog" aria-modal="true" aria-label="Меню сайта"><nav class="site-menu__nav"><a class="site-menu__link" href="index.html#top">Главная</a><a class="site-menu__link" href="apartments.html">Квартиры в продаже</a><a class="site-menu__link" href="index.html#parking">Парковка</a><a class="site-menu__link" href="index.html#storage">Кладовки</a><a class="site-menu__link" href="about.html">О застройщике</a><a class="site-menu__link" href="index.html#mortgage">Ипотека</a><a class="site-menu__link" href="index.html#gallery">Галерея</a><a class="site-menu__link" href="index.html#construction">Ход строительства</a><a class="site-menu__link" href="contacts.html">Контакты</a></nav></div>`;
     const menuPanel = siteMenu.querySelector(".site-menu__panel");
     const menuContacts = footerContacts.cloneNode(true);
     menuContacts.className = "site-menu__contacts";
@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const activeHref =
         page === "apartments.html" || page === "apartment.html"
           ? "apartments.html"
-          : page === "about.html"
-            ? "about.html"
+          : page === "about.html" || page === "contacts.html"
+            ? page
             : `index.html${location.hash || "#top"}`;
       menuLinks.forEach((link) => {
         const isActive = link.getAttribute("href") === activeHref;

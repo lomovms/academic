@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Контакты — Академик</title>
+    <link href="assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/variables.css" rel="stylesheet" />
+    <link href="css/global.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+    <link href="css/contacts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" aria-label="Академик"
+          ><img
+            class="header__logo"
+            src="assets/images/svg/logo.svg"
+            alt="Каскад"
+        /></a>
+        <div class="header__actions">
+          <a class="header__phone" href="tel:+78312884825"
+            ><img
+              class="header__icon"
+              src="assets/images/svg/phone.svg"
+              alt=""
+            /><span class="header__phone-text">+7 (831) 288-48-25</span></a
+          >
+          <a class="header__apartments" href="apartments.html"
+            ><img
+              class="header__icon header__icon--apartments"
+              src="assets/images/svg/apartment-choice.svg"
+              alt=""
+            /><span>Выбрать квартиру</span></a
+          >
+          <button class="menu-button" type="button" aria-label="Открыть меню">
+            <img
+              class="menu-button__icon"
+              src="assets/images/svg/menu.svg"
+              alt=""
+            /><b class="menu-button__label">Меню</b>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="contacts-page">
+      <section
+        class="sales-office container"
+        aria-labelledby="sales-office-title"
+      >
+        <nav class="sales-office__breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a
+          ><span aria-current="page">Контакты</span>
+        </nav>
+        <div class="sales-office__layout">
+          <iframe
+            class="sales-office__map"
+            src="https://yandex.ru/map-widget/v1/?text=Нижний%20Новгород%2C%20Ковалихинская%20улица%2C%208Б&amp;z=17"
+            title="Яндекс Карта: офис продаж, Нижний Новгород, Ковалихинская улица, 8Б"
+            allowfullscreen
+          ></iframe>
+          <div class="sales-office__card">
+            <h1 id="sales-office-title">Отдел продаж</h1>
+            <div class="sales-office__address-block">
+              <a class="sales-office__phone" href="tel:+78312808475"
+                >+7 (831) 280-84-75</a
+              >
+              <address>
+                <strong>г. Нижний Новгород,<br />ул. Ковалихинская, 8 Б</strong>
+                <span>ориентир Центр Международной торговли</span>
+              </address>
+            </div>
+            <dl class="sales-office__hours">
+              <div class="sales-office__weekdays">
+                <dt>Понедельник-Пятница:</dt>
+                <dd>С 9:00 до 19:00</dd>
+              </div>
+              <div>
+                <dt>Суббота</dt>
+                <dd>По записи</dd>
+              </div>
+              <div>
+                <dt>Воскресенье</dt>
+                <dd>Выходной</dd>
+              </div>
+            </dl>
+            <div class="sales-office__links">
+              <a class="sales-office__email" href="mailto:sales@kaskad-nn.ru"
+                >sales@kaskad-nn.ru</a
+              >
+              <div class="sales-office__social">
+                <a
+                  class="button"
+                  href="https://vk.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ВКонтакте"
+                >
+                  <img
+                    src="assets/images/svg/social-vk.svg"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </a>
+                <a
+                  class="button"
+                  href="https://max.ru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="MAX"
+                >
+                  <img
+                    src="assets/images/svg/social-max.svg"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contacts section" id="contacts">
+        <div class="container contacts__inner">
+          <div class="contacts__row row g-0">
+            <form class="contacts__form col-lg-7">
+              <h2 class="contacts__title">Остались вопросы?</h2>
+              <p class="contacts__text">
+                Наши специалисты помогут подобрать оптимальное<br />решение и
+                ответят на все ваши вопросы.
+              </p>
+              <div class="contacts__fields">
+                <input
+                  class="contacts__input"
+                  type="text"
+                  name="name"
+                  placeholder="Имя"
+                /><input
+                  class="contacts__input"
+                  type="tel"
+                  name="phone"
+                  placeholder="Телефон"
+                />
+              </div>
+              <label class="contacts__consent"
+                ><input class="contacts__checkbox" type="checkbox" /><span
+                  class="contacts__checkbox-mark"
+                  aria-hidden="true"
+                ></span
+                >Я даю согласие на обработку
+                <a class="contacts__policy" href="#"
+                  >персональных данных</a
+                ></label
+              ><button class="button contacts__button" type="submit">
+                Получить консультацию
+              </button>
+            </form>
+            <div class="contacts__portrait col-lg-5">
+              <img
+                class="contacts__portrait-image"
+                src="assets/images/contact-portrait.png"
+                alt="Специалист жилого комплекса"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer__top">
+        <div class="footer__row row">
+          <div class="footer__main col-lg-9">
+            <img
+              class="footer__logo"
+              src="assets/images/svg/title.svg"
+              alt="Академик"
+            />
+            <img
+              class="footer__subtitle"
+              src="assets/images/svg/hero-subtitle.svg"
+              alt="Жилой комплекс"
+            />
+            <small class="footer__caption">Адрес дома</small>
+            <p class="footer__address">
+              Нижегородская область, г. Саров, ул.<br />Пионерская
+            </p>
+            <nav class="footer__nav">
+              <a class="footer__nav-link" href="#"
+                >Политика конфиденциальности</a
+              ><a class="footer__nav-link" href="#"
+                >Согласие на обработку персональных данных</a
+              ><a class="footer__nav-link" href="#"
+                >Пользовательское соглашение</a
+              >
+            </nav>
+          </div>
+          <div class="footer__contacts col-lg-3">
+            <a class="footer__contact-link" href="tel:+78312884825"
+              >+7 (831) 288-48-25</a
+            >
+            <a class="footer__contact-link" href="mailto:kaskadnn@list.ru"
+              >KASKADNN@LIST.RU</a
+            >
+            <div class="footer__social">
+              <a
+                class="footer__social-link"
+                href="https://vk.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="ВКонтакте"
+                ><img
+                  class="footer__social-icon"
+                  src="assets/images/svg/social-vk.svg"
+                  alt="" /></a
+              ><a
+                class="footer__social-link"
+                href="https://max.ru"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MAX"
+                ><img
+                  class="footer__social-icon"
+                  src="assets/images/svg/social-max.svg"
+                  alt=""
+              /></a>
+            </div>
+            <small class="footer__caption">Офис продаж</small>
+            <p class="footer__address">
+              г. Нижний Новгород, ул. Ковалихинская, 8 Б<br />(ориентир Центр
+              Международной торговли)
+            </p>
+            <p class="footer__developer">
+              Разработано в
+              <a
+                class="footer__developer-link"
+                href="https://melissa.team"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="melissa.team"
+                ><img
+                  class="footer__developer-logo"
+                  src="assets/images/svg/melissa-team.svg"
+                  alt="melissa.team"
+              /></a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        © 2026. Застройщик: ООО «Каскад специализированный застройщик»,
+        проектная декларация и иная<br />документация, предусмотренная
+        законодательством РФ, размещена на сайте ЕИСЖС: наш.дом.рф.<br />Информация,
+        представленная на сайте, носит информационный характер и не является
+        публичной офертой.
+      </div>
+    </footer>
+    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

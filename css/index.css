@@ -565,6 +565,7 @@
 }
 .contacts__portrait {
   position: relative;
+  border-radius: 0 var(--radius) var(--radius) 0;
   background: url("../assets/images/svg/041-Vector-2152-1488.svg")
     calc(100% + 65px) bottom / 548px auto no-repeat;
 }
@@ -576,6 +577,27 @@
   height: 385px;
   object-fit: contain;
   object-position: right bottom;
+  border-bottom-right-radius: var(--radius);
+}
+@media (min-width: 768px) {
+  .contacts__form {
+    width: 58.333333%;
+  }
+  .contacts__portrait {
+    width: 41.666667%;
+  }
+  .contacts__title {
+    margin-bottom: 12px;
+  }
+  .contacts__fields {
+    width: 450px;
+    max-width: 100%;
+    margin-top: 28px;
+  }
+  .contacts__input {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
 }
 @media (max-width: 991.98px) {
   .parking__row {
@@ -871,10 +893,15 @@
   }
   .contacts__portrait {
     order: 1;
-    min-height: 250px;
+    min-height: 0;
+    aspect-ratio: 425 / 275;
+    border-radius: var(--radius) var(--radius) 16px 0;
+    background-size: 100% auto;
+    background-position: 28px bottom;
   }
   .contacts__portrait-image {
-    width: min(408px, 100%);
+    width: 74%;
     height: auto;
+    border-bottom-right-radius: 16px;
   }
 }
